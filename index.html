@@ -1,1 +1,299 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#222637">
+  <title>Newstalgia — Memórias da cultura pop</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --papel: #faf4e7;
+      --tinta: #222637;
+      --rosa: #ff9db8;
+      --amarelo: #ffdc72;
+      --verde: #a8dec9;
+      --borda: 2px solid var(--tinta);
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    .pagina {
+      width: min(100% - 40px, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: clamp(40px, 8vw, 88px) 0 36px;
+      border-bottom: var(--borda);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(3.4rem, 12vw, 8rem);
+      font-style: italic;
+      letter-spacing: -0.075em;
+      line-height: 1;
+    }
+
+    h1 span { color: #a62e53; }
+
+    header p {
+      margin-top: 18px;
+      max-width: 48ch;
+      font-size: 1.1rem;
+    }
+
+    main { padding: 32px 0 56px; }
+
+    h2, h3 {
+      font-family: Georgia, serif;
+      line-height: 1.2;
+    }
+
+    h2 { font-size: 2rem; }
+
+    .controles {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 16px 28px;
+      margin: 22px 0 12px;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    button, input {
+      border: var(--borda);
+      border-radius: 6px;
+      background: #fffdf8;
+      color: var(--tinta);
+      font: inherit;
+      padding: 8px 14px;
+    }
+
+    button { cursor: pointer; }
+
+    button[aria-pressed="true"] {
+      background: var(--tinta);
+      color: white;
+    }
+
+    :focus-visible {
+      outline: 3px solid #9e2954;
+      outline-offset: 3px;
+    }
+
+    label {
+      display: grid;
+      gap: 4px;
+      font-weight: bold;
+    }
+
+    input {
+      width: min(100%, 280px);
+      font-weight: normal;
+    }
+
+    #resultado {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: 18px;
+    }
+
+    article {
+      overflow: hidden;
+      border: var(--borda);
+      border-radius: 10px;
+      background: #fffdf8;
+      box-shadow: 3px 3px 0 var(--tinta);
+    }
+
+    .capa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 116px;
+      border-bottom: var(--borda);
+      font-size: 3.25rem;
+    }
+
+    [data-decada="80"] .capa { background: var(--amarelo); }
+    [data-decada="90"] .capa { background: var(--rosa); }
+    [data-decada="2000"] .capa { background: var(--verde); }
+
+    .texto { padding: 20px; }
+
+    .epoca {
+      font-family: monospace;
+      font-size: 0.88rem;
+      font-weight: bold;
+    }
+
+    h3 {
+      margin: 6px 0 10px;
+      font-size: 1.55rem;
+    }
+
+    footer {
+      padding: 18px 0;
+      border-top: var(--borda);
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="pagina">
+    <header>
+      <h1>New<span>stalgia</span></h1>
+      <p>Da fita gravada ao primeiro MP3, um acervo de pequenas memórias da cultura pop.</p>
+    </header>
+
+    <main>
+      <h2>Explore o acervo</h2>
+
+      <div class="controles">
+        <div class="filtros" role="group" aria-label="Filtrar por década">
+          <button type="button" data-filtro="todos" aria-pressed="true">Todas</button>
+          <button type="button" data-filtro="80" aria-pressed="false">Anos 80</button>
+          <button type="button" data-filtro="90" aria-pressed="false">Anos 90</button>
+          <button type="button" data-filtro="2000" aria-pressed="false">Anos 2000</button>
+        </div>
+
+        <label for="busca">
+          Buscar no acervo
+          <input id="busca" type="search" placeholder="Ex.: fita, locadora, MP3">
+        </label>
+      </div>
+
+      <p id="resultado" role="status">6 memórias no acervo.</p>
+
+      <div class="grade">
+        <article data-decada="80">
+          <div class="capa" aria-hidden="true">📼</div>
+          <div class="texto">
+            <span class="epoca">Anos 80</span>
+            <h3>O lado B da fita</h3>
+            <p>Gravar uma música do rádio exigia dedo rápido. Se o locutor falasse em cima do refrão, a voz dele entrava na coleção também.</p>
+          </div>
+        </article>
+
+        <article data-decada="80">
+          <div class="capa" aria-hidden="true">🕹️</div>
+          <div class="texto">
+            <span class="epoca">Anos 80</span>
+            <h3>A última ficha</h3>
+            <p>No fliperama, a ficha em cima da máquina marcava a vez. Quem esperava aproveitava para espiar como o jogador da frente passava de fase.</p>
+          </div>
+        </article>
+
+        <article data-decada="90">
+          <div class="capa" aria-hidden="true">📺</div>
+          <div class="texto">
+            <span class="epoca">Anos 90</span>
+            <h3>Sexta na locadora</h3>
+            <p>A capa prometia uma aventura incrível. A caixinha vazia avisava que alguém tinha chegado primeiro. Era hora de escolher o plano B para o fim de semana.</p>
+          </div>
+        </article>
+
+        <article data-decada="90">
+          <div class="capa" aria-hidden="true">☎️</div>
+          <div class="texto">
+            <span class="epoca">Anos 90</span>
+            <h3>A internet discada</h3>
+            <p>Primeiro vinha o tom de telefone. Depois, um chiado que parecia conversa entre robôs. Até que alguém na sala gritava que precisava usar a linha.</p>
+          </div>
+        </article>
+
+        <article data-decada="2000">
+          <div class="capa" aria-hidden="true">🎧</div>
+          <div class="texto">
+            <span class="epoca">Anos 2000</span>
+            <h3>Um bolso cheio de MP3</h3>
+            <p>Antes de sair, vinha a decisão difícil. Para levar o álbum novo no tocador de MP3, qual música merecia perder seu lugar?</p>
+          </div>
+        </article>
+
+        <article data-decada="2000">
+          <div class="capa" aria-hidden="true">💬</div>
+          <div class="texto">
+            <span class="epoca">Anos 2000</span>
+            <h3>Uma janela no MSN</h3>
+            <p>O apelido era um trecho de música, o status dizia “ausente” e, mesmo assim, bastava a pessoa certa entrar para a conversa começar.</p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer>Newstalgia</footer>
+  </div>
+
+  <script>
+    const busca = document.querySelector("#busca");
+    const resultado = document.querySelector("#resultado");
+    const botoes = document.querySelectorAll("[data-filtro]");
+    const memorias = document.querySelectorAll("article[data-decada]");
+    let decadaAtiva = "todos";
+
+    function normalizar(texto) {
+      return texto.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+    function atualizarAcervo() {
+      const termo = normalizar(busca.value);
+      let total = 0;
+
+      for (const memoria of memorias) {
+        const correspondeDecada =
+          decadaAtiva === "todos" || memoria.dataset.decada === decadaAtiva;
+        const correspondeBusca = normalizar(memoria.textContent).includes(termo);
+        memoria.hidden = !(correspondeDecada && correspondeBusca);
+        if (!memoria.hidden) total++;
+      }
+
+      if (total === 0) {
+        resultado.textContent = "Nenhuma memória encontrada. Tente outra palavra ou década.";
+      } else {
+        resultado.textContent = total === 1
+          ? "1 memória no acervo."
+          : `${total} memórias no acervo.`;
+      }
+    }
+
+    for (const botao of botoes) {
+      botao.addEventListener("click", () => {
+        decadaAtiva = botao.dataset.filtro;
+        for (const opcao of botoes) {
+          opcao.setAttribute("aria-pressed", String(opcao === botao));
+        }
+        atualizarAcervo();
+      });
+    }
+
+    busca.addEventListener("input", atualizarAcervo);
+  </script>
+</body>
+</html>
