@@ -3,1388 +3,1747 @@
 <html lang="pt-BR">
 
 <head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Newstalgia - Acervo digital da memória do jornalismo televisivo brasileiro. Cidade Alerta, Brasil Urgente e Repórter Cidadão.">
+
+<meta name="theme-color" content="#061477">
+
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-    content="Newstalgia - Acervo digital da memória do jornalismo televisivo brasileiro. As notícias passam. A história permanece.">
+<title>Newstalgia - A história permanece</title>
 
-  <meta name="theme-color" content="#061477">
+<style>
 
-  <title>Newstalgia - A história permanece</title>
+:root {
+    --azul-escuro: #061477;
+    --azul-principal: #1635a3;
+    --azul-claro: #718cda;
+    --prata: #e1e3e9;
+    --vermelho: #ed2534;
+}
 
-  <style>
+* {
+    box-sizing: border-box;
+}
 
-    /* ========================================
-       NEWSTALGIA
-       Identidade visual: Internet 1990/2000
-       ======================================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f7f8fb;
+    color: #172340;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 15px;
+}
 
-    :root {
-      --azul-escuro: #061477;
-      --azul-principal: #1635a3;
-      --azul-claro: #718cda;
-      --prata: #e1e3e9;
-      --cinza-borda: #777f94;
-      --vermelho: #ed2534;
-    }
+.pagina {
+    width: min(100%, 1540px);
+    min-height: 100vh;
+    margin: auto;
+    padding: 4px;
+    background: #f6f8fc;
+    border-left: 1px solid #c4c9d3;
+    border-right: 1px solid #c4c9d3;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+/* BANNER */
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f7f8fb;
-      color: #172340;
-      font-family: Tahoma, Verdana, Arial, sans-serif;
-      font-size: 15px;
-    }
-
-    /* ========================================
-       ESTRUTURA PRINCIPAL
-       ======================================== */
-
-    .pagina {
-      width: min(100%, 1540px);
-      min-height: 100vh;
-      margin: auto;
-      padding: 4px;
-      background: #f6f8fc;
-
-      border-left: 1px solid #c4c9d3;
-      border-right: 1px solid #c4c9d3;
-    }
-
-    /* ========================================
-       BANNER SUPERIOR
-       ======================================== */
-
-    .banner {
-      position: relative;
-      isolation: isolate;
-
-      display: grid;
-      grid-template-columns:
+.banner {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns:
         136px minmax(360px, 1fr) 112px 302px;
 
-      align-items: center;
-      gap: 12px;
+    align-items: center;
+    gap: 12px;
+    min-height: 160px;
+    padding: 9px 15px 10px 13px;
+    overflow: hidden;
 
-      min-height: 160px;
-      padding: 9px 15px 10px 13px;
+    border: 2px ridge #8ca0d9;
 
-      overflow: hidden;
-
-      border: 2px ridge #8ca0d9;
-
-      background:
+    background:
         repeating-linear-gradient(
-          to bottom,
-          transparent 0 2px,
-          rgba(255,255,255,.035) 2px 3px
+            to bottom,
+            transparent 0 2px,
+            rgba(255,255,255,.035) 2px 3px
         ),
         linear-gradient(
-          105deg,
-          #030a54 0%,
-          #102a9a 46%,
-          #0b1d7d 74%,
-          #091459 100%
+            105deg,
+            #030a54,
+            #102a9a 46%,
+            #0b1d7d 74%,
+            #091459
         );
 
-      box-shadow:
-        inset 0 2px 3px rgba(255,255,255,.32),
-        inset 0 -6px 8px rgba(0,0,0,.2);
-    }
+    box-shadow:
+        inset 0 2px 3px #ffffff55,
+        inset 0 -6px 8px #0003;
+}
 
-    .banner::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
 
-      background:
-        radial-gradient(
-          ellipse at 25% 20%,
-          rgba(109,149,244,.43),
-          transparent 44%
-        );
+    background: radial-gradient(
+        ellipse at 25% 20%,
+        #6d95f46e,
+        transparent 44%
+    );
 
-      pointer-events: none;
-    }
+    pointer-events: none;
+}
 
-    /* ========================================
-       SILHUETA URBANA
-       ======================================== */
+/* SILHUETA URBANA */
 
-    .silhueta {
-      position: absolute;
-      z-index: -1;
+.silhueta {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 66px;
+    opacity: .64;
+    fill: #061052;
+    pointer-events: none;
+}
 
-      bottom: 0;
-      left: 0;
+/* TELEVISÃO ANTIGA */
 
-      width: 100%;
-      height: 66px;
+.tv-antiga {
+    width: 132px;
+    max-width: 100%;
+    height: auto;
+    align-self: end;
+    filter: drop-shadow(8px 7px 5px #0009);
+}
 
-      opacity: .64;
-      fill: #061052;
+/* LOGOTIPO */
 
-      pointer-events: none;
-    }
+.marca {
+    position: relative;
+    min-width: 0;
+    padding: 5px 0;
+}
 
-    /* ========================================
-       TELEVISÃO ANTIGA
-       ======================================== */
+.marca::before,
+.marca::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: rotate(-8deg);
+}
 
-    .tv-antiga {
-      width: 132px;
-      max-width: 100%;
-      height: auto;
+.marca::before {
+    width: min(70%, 420px);
+    height: 48px;
+    top: -8px;
+    left: 29%;
+    border-top: 8px solid #f42533;
+}
 
-      align-self: end;
+.marca::after {
+    width: min(57%, 350px);
+    height: 43px;
+    left: 4%;
+    bottom: 7px;
+    border-bottom: 7px solid #ed1e2d;
+}
 
-      filter:
-        drop-shadow(
-          8px 7px 5px rgba(0,0,0,.55)
-        );
-    }
+.logotipo {
+    display: block;
+    margin: 0;
 
-    /* ========================================
-       LOGOTIPO
-       ======================================== */
+    font-family: Impact, "Arial Black", Arial, sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(45px, 5vw, 79px);
 
-    .marca {
-      position: relative;
-      min-width: 0;
-      padding: 5px 0;
-    }
+    line-height: 1.05;
+    letter-spacing: -1.7px;
+    text-transform: uppercase;
+    white-space: nowrap;
 
-    .marca::before,
-    .marca::after {
-      content: "";
+    transform: skew(-6deg);
 
-      position: absolute;
-      z-index: -1;
+    color: #f4f7ff;
 
-      pointer-events: none;
-
-      border-radius: 50%;
-      transform: rotate(-8deg);
-    }
-
-    /* Arco vermelho superior */
-
-    .marca::before {
-      width: min(70%, 420px);
-      height: 48px;
-
-      top: -8px;
-      left: 29%;
-
-      border-top: 8px solid #f42533;
-    }
-
-    /* Arco vermelho inferior */
-
-    .marca::after {
-      width: min(57%, 350px);
-      height: 43px;
-
-      left: 4%;
-      bottom: 7px;
-
-      border-bottom: 7px solid #ed1e2d;
-    }
-
-    .logotipo {
-      display: block;
-
-      margin: 0;
-
-      font-family:
-        Impact,
-        "Arial Black",
-        Arial,
-        sans-serif;
-
-      font-style: italic;
-      font-weight: 900;
-
-      font-size: clamp(45px, 5vw, 79px);
-      line-height: 1.05;
-
-      letter-spacing: -1.7px;
-      text-transform: uppercase;
-      white-space: nowrap;
-
-      transform: skew(-6deg);
-
-      color: #f4f7ff;
-
-      background: linear-gradient(
+    background: linear-gradient(
         180deg,
         #ffffff 1%,
         #edf3ff 33%,
         #a6b8e0 58%,
         #f6f8ff 78%,
         #a1a9bd 100%
-      );
+    );
 
-      -webkit-background-clip: text;
-      background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 
-      -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #061450b3;
 
-      -webkit-text-stroke:
-        1px rgba(6,20,80,.7);
-
-      filter:
+    filter:
         drop-shadow(2px 3px 0 #020b44)
-        drop-shadow(
-          3px 4px 1px rgba(0,0,0,.5)
-        );
-    }
+        drop-shadow(3px 4px 1px #0008);
+}
 
-    /* ========================================
-       SLOGAN
-       ======================================== */
+.slogan {
+    margin: 3px 0 0 19px;
+    color: #f7f9ff;
+    font-size: clamp(14px, 1.45vw, 22px);
+    font-style: italic;
+    font-weight: bold;
+    line-height: 1.3;
+    text-shadow: 2px 2px 2px #00083c;
+    white-space: nowrap;
+}
 
-    .slogan {
-      margin: 3px 0 0 19px;
+/* ANTENA */
 
-      color: #f7f9ff;
+.parabolica {
+    width: 113px;
+    height: auto;
+    opacity: .9;
+    filter: drop-shadow(3px 5px 2px #0006);
+}
 
-      font-family:
-        Tahoma,
-        Verdana,
-        sans-serif;
+/* PESQUISA */
 
-      font-size: clamp(14px, 1.45vw, 22px);
-      font-style: italic;
-      font-weight: 700;
+.pesquisa {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: white;
+}
 
-      line-height: 1.3;
+.pesquisa label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000a42;
+}
 
-      text-shadow:
-        2px 2px 2px #00083c;
+.pesquisa-linha {
+    display: flex;
+    gap: 7px;
+}
 
-      letter-spacing: .1px;
-      white-space: nowrap;
-    }
+.pesquisa input {
+    width: 100%;
+    min-width: 0;
+    height: 29px;
+    padding: 3px 7px;
+    border: 2px inset #b5bdcf;
+    border-radius: 0;
+    background: white;
+    color: #152044;
+    font: inherit;
+    box-shadow: inset 1px 1px 1px #777;
+}
 
-    /* ========================================
-       ANTENA PARABÓLICA
-       ======================================== */
+.pesquisa button {
+    min-width: 47px;
+    height: 29px;
+    padding: 1px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #0e1731;
+    border: 2px outset #f8faff;
 
-    .parabolica {
-      width: 113px;
-      height: auto;
-
-      opacity: .9;
-
-      filter:
-        drop-shadow(
-          3px 5px 2px rgba(0,0,0,.35)
-        );
-    }
-
-    /* ========================================
-       CAIXA DE PESQUISA
-       ======================================== */
-
-    .pesquisa {
-      position: relative;
-      z-index: 1;
-
-      width: 100%;
-
-      align-self: center;
-
-      margin: 0;
-      color: white;
-    }
-
-    .pesquisa label {
-      display: block;
-
-      margin: 0 0 6px;
-
-      font-size: 15px;
-      font-weight: bold;
-
-      text-shadow:
-        1px 1px 1px #000a42;
-    }
-
-    .pesquisa-linha {
-      display: flex;
-      gap: 7px;
-    }
-
-    .pesquisa input {
-      width: 100%;
-      min-width: 0;
-
-      height: 29px;
-      padding: 3px 7px;
-
-      border: 2px inset #b5bdcf;
-      border-radius: 0;
-
-      background: white;
-      color: #152044;
-
-      font-family:
-        Tahoma,
-        Verdana,
-        sans-serif;
-
-      font-size: 15px;
-
-      box-shadow:
-        inset 1px 1px 1px #777;
-
-      appearance: none;
-    }
-
-    .pesquisa button {
-      min-width: 47px;
-      height: 29px;
-
-      padding: 1px 8px;
-
-      font-size: 14px;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      color: #0e1731;
-
-      border: 2px outset #f8faff;
-      border-radius: 0;
-
-      background: linear-gradient(
-        to bottom,
+    background: linear-gradient(
         #fcfcfd,
         #d2d6e1 67%,
         #b8bfcd
-      );
+    );
 
-      box-shadow:
-        1px 1px 0 #596077;
-    }
+    box-shadow: 1px 1px 0 #596077;
+}
 
-    .pesquisa button:hover {
-      background: #e2eaff;
-    }
+.pesquisa button:hover {
+    background: #e2eaff;
+}
 
-    .pesquisa button:active {
-      border-style: inset;
-    }
+.pesquisa button:active {
+    border-style: inset;
+}
 
-    /* ========================================
-       BARRA DE NAVEGAÇÃO
-       ======================================== */
+/* NAVEGAÇÃO */
 
-    .navegacao {
-      display: grid;
+.navegacao {
+    display: grid;
 
-      grid-template-columns:
+    grid-template-columns:
         .85fr 1.05fr .9fr 1fr 1.35fr .8fr;
 
-      gap: 5px;
+    gap: 5px;
+    padding: 6px 10px;
 
-      padding: 6px 10px;
+    border: 1px solid #8a91a0;
+    border-top-color: #eef0f5;
 
-      border: 1px solid #8a91a0;
-      border-top-color: #eef0f5;
-
-      background: linear-gradient(
+    background: linear-gradient(
         #e9eaf0,
         #c2c7d1 90%,
         #a5aaba
-      );
+    );
 
-      box-shadow:
+    box-shadow:
         inset 0 1px white,
         0 2px 3px #cbd0da;
-    }
+}
 
-    /* ========================================
-       BOTÕES DO MENU
-       ======================================== */
+.link-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 0;
+    min-height: 40px;
+    padding: 6px 8px;
+    text-decoration: none;
 
-    .link-menu {
-      display: flex;
+    font-size: clamp(13px, 1.2vw, 18px);
+    font-weight: bold;
+    white-space: nowrap;
+    color: #0e1731;
 
-      align-items: center;
-      justify-content: center;
+    border: 2px outset #f8faff;
 
-      gap: 9px;
-
-      min-width: 0;
-      min-height: 40px;
-
-      padding: 6px 8px;
-
-      text-decoration: none;
-
-      font-family:
-        Tahoma,
-        Verdana,
-        sans-serif;
-
-      font-size: clamp(13px, 1.2vw, 18px);
-      font-weight: bold;
-
-      white-space: nowrap;
-
-      color: #0e1731;
-
-      cursor: pointer;
-
-      border: 2px outset #f8faff;
-      border-radius: 0;
-
-      background: linear-gradient(
-        to bottom,
+    background: linear-gradient(
         #fcfcfd,
         #d2d6e1 67%,
         #b8bfcd
-      );
+    );
 
-      text-shadow:
-        1px 1px #fff;
+    text-shadow: 1px 1px #fff;
+    box-shadow: 1px 1px 0 #596077;
+}
 
-      box-shadow:
-        1px 1px 0 #596077;
-
-      transition:
-        background .15s ease;
-    }
-
-    .link-menu:hover:not(.ativo) {
-      background: linear-gradient(
-        #ffffff,
+.link-menu:hover:not(.ativo) {
+    background: linear-gradient(
+        #fff,
         #dce4ff 65%,
         #b3c0e9
-      );
-    }
+    );
+}
 
-    .link-menu:active {
-      border-style: inset;
-    }
+.link-menu:active {
+    border-style: inset;
+}
 
-    /* Botão selecionado */
+.link-menu.ativo {
+    border: 2px inset #849bd6;
 
-    .link-menu.ativo {
-      border: 2px inset #849bd6;
-
-      background: linear-gradient(
+    background: linear-gradient(
         #284cc4,
         #071c91 65%,
         #03075f
-      );
+    );
 
-      color: white;
+    color: white;
+    text-shadow: 1px 1px #02083d;
+}
 
-      text-shadow:
-        1px 1px #02083d;
+.icone {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+    stroke: #07185d;
+    stroke-width: 1.6;
+    fill: #f7f8ff;
+}
 
-      box-shadow:
-        inset 0 0 0 1px #687ed5;
-    }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #f7c442;
+    outline-offset: 2px;
+}
 
-    /* Ícones */
+/* CONTEÚDO */
 
-    .icone {
-      width: 21px;
-      height: 21px;
+.area-principal {
+    min-height: calc(100vh - 227px);
+    padding: 18px;
 
-      flex: 0 0 21px;
+    background: linear-gradient(
+        #f7f9ff,
+        #f9faff
+    );
+}
 
-      stroke: #07185d;
-      stroke-width: 1.6;
+.painel {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #8999bd;
+    box-shadow: 2px 2px 0 #d1d7e4;
+}
 
-      fill: #f7f8ff;
+.painel-titulo {
+    margin: 0;
+    padding: 10px 14px;
+    color: white;
+    font-size: 16px;
 
-      filter:
-        drop-shadow(
-          1px 1px 0 rgba(0,0,0,.3)
-        );
-    }
+    background: linear-gradient(
+        #385bc2,
+        #081878
+    );
+}
 
-    /* Acessibilidade */
+.painel-conteudo {
+    padding: 15px;
+}
 
-    .link-menu:focus-visible,
-    .pesquisa button:focus-visible,
-    .pesquisa input:focus-visible {
-      outline: 3px solid #f7c442;
-      outline-offset: 2px;
-    }
+.contador {
+    color: #516078;
+    font-size: 13px;
+    margin: 0 0 15px;
+}
 
-    /* ========================================
-       ÁREA PRINCIPAL
-       ======================================== */
+.lista-resultados {
+    display: grid;
+    gap: 8px;
+}
 
-    .area-principal {
-      min-height: calc(100vh - 227px);
+.resultado {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    border: 1px solid #c4cfdb;
+    background: #f9faff;
+}
 
-      padding: 18px;
+.resultado:hover {
+    background: #edf2ff;
+}
 
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(9,31,109,.006) 0 1px,
-          transparent 1px 4px
-        ),
-        linear-gradient(
-          #f7f9ff,
-          #f9faff
-        );
-    }
+.miniatura {
+    width: 128px;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #080e2d;
+    border: 1px solid #8999bd;
+}
 
-    /* Mensagens provisórias */
+.resultado-info {
+    min-width: 0;
+}
 
-    .aviso {
-      width: fit-content;
-      max-width: 100%;
+.resultado-titulo {
+    color: #123d91;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.4;
+}
 
-      padding: 12px 16px;
+.resultado-titulo:hover {
+    text-decoration: underline;
+}
 
-      border: 1px solid #9ba9c7;
+.resultado-meta {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #516078;
+    margin: 5px 0;
+}
 
-      background: #eef2ff;
-      color: #162765;
+.assistir {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 12px;
+    border: 2px outset white;
 
-      font-size: 14px;
+    background: linear-gradient(
+        #fff,
+        #c1cde5
+    );
 
-      box-shadow:
-        2px 2px 0 #d1d7e4;
-    }
+    color: #10266c;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-    [hidden] {
-      display: none !important;
-    }
+.aviso {
+    padding: 12px;
+    color: #162765;
+    background: #eef2ff;
+    border: 1px solid #9ba9c7;
+}
 
-    /* ========================================
-       RESPONSIVIDADE
-       ======================================== */
+[hidden] {
+    display: none !important;
+}
 
-    @media (max-width: 1130px) {
+/* RESPONSIVIDADE */
 
-      .banner {
+@media (max-width: 1130px) {
+
+    .banner {
         grid-template-columns:
-          110px minmax(315px, 1fr) 72px 248px;
+            110px minmax(315px, 1fr) 72px 248px;
 
         gap: 8px;
-      }
-
-      .tv-antiga {
-        width: 108px;
-      }
-
-      .parabolica {
-        width: 76px;
-      }
-
-      .logotipo {
-        font-size: clamp(42px, 5.25vw, 66px);
-      }
-
-      .slogan {
-        font-size: clamp(12px, 1.5vw, 18px);
-        margin-left: 8px;
-      }
-
     }
 
-    /* Tablets */
+    .tv-antiga {
+        width: 108px;
+    }
 
-    @media (max-width: 850px) {
+    .parabolica {
+        width: 76px;
+    }
 
-      .banner {
+    .logotipo {
+        font-size: clamp(42px, 5.25vw, 66px);
+    }
+
+    .slogan {
+        font-size: clamp(12px, 1.5vw, 18px);
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .banner {
         grid-template-columns:
-          100px minmax(0, 1fr) 240px;
+            100px minmax(0, 1fr) 240px;
 
         padding: 12px 10px;
         min-height: 136px;
-      }
-
-      .parabolica {
-        display: none;
-      }
-
-      .logotipo {
-        font-size: clamp(37px, 5.5vw, 55px);
-      }
-
-      .slogan {
-        font-size: clamp(11px, 1.8vw, 15px);
-        white-space: normal;
-      }
-
-      .navegacao {
-        grid-template-columns:
-          repeat(3, 1fr);
-      }
-
-      .link-menu {
-        font-size: 15px;
-      }
-
     }
 
-    /* Celulares */
+    .parabolica {
+        display: none;
+    }
 
-    @media (max-width: 680px) {
+    .logotipo {
+        font-size: clamp(37px, 5.5vw, 55px);
+    }
 
-      .banner {
+    .slogan {
+        font-size: clamp(11px, 1.8vw, 15px);
+        white-space: normal;
+    }
+
+    .navegacao {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+
+    .banner {
         grid-template-columns:
-          75px minmax(0, 1fr);
-
+            75px minmax(0, 1fr);
         gap: 5px 9px;
-      }
+    }
 
-      .tv-antiga {
+    .tv-antiga {
         width: 75px;
         align-self: center;
-      }
+    }
 
-      .logotipo {
+    .logotipo {
         font-size: clamp(30px, 8vw, 56px);
         letter-spacing: -.8px;
-      }
+    }
 
-      .slogan {
+    .slogan {
         font-size: clamp(12px, 2.9vw, 17px);
-        line-height: 1.25;
+        white-space: normal;
         margin-left: 1px;
-      }
+    }
 
-      .pesquisa {
+    .pesquisa {
         grid-column: 1 / -1;
-        width: 100%;
         margin-top: 5px;
-      }
+    }
 
-      .pesquisa label {
-        margin-bottom: 3px;
-      }
-
-      .navegacao {
+    .navegacao {
         grid-template-columns:
-          repeat(2, minmax(0, 1fr));
+            repeat(2, minmax(0, 1fr));
 
         gap: 5px;
         padding: 6px;
-      }
-
-      .link-menu {
-        min-height: 40px;
-        font-size: 14px;
-        gap: 6px;
-      }
-
-      .area-principal {
-        min-height: 65vh;
-      }
-
     }
 
-    @media (max-width: 360px) {
+    .link-menu {
+        font-size: 14px;
+        gap: 6px;
+    }
 
-      .logotipo {
+    .area-principal {
+        min-height: 65vh;
+        padding: 8px;
+    }
+
+    .miniatura {
+        width: 90px;
+    }
+
+    .resultado {
+        gap: 9px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .logotipo {
         font-size: 28px;
-      }
+    }
 
-      .icone {
+    .icone {
         width: 18px;
         height: 18px;
         flex-basis: 18px;
-      }
-
-      .link-menu {
-        padding: 5px 3px;
-        font-size: 12px;
-      }
-
     }
 
-  </style>
+    .link-menu {
+        font-size: 12px;
+    }
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <!-- ========================================
-       ÍCONES DOS BOTÕES
-       ======================================== -->
+<!-- ÍCONES -->
 
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    style="position:absolute;width:0;height:0;overflow:hidden"
-    aria-hidden="true"
-  >
-
-    <!-- Início -->
+<svg xmlns="http://www.w3.org/2000/svg"
+style="position:absolute;width:0;height:0;overflow:hidden"
+aria-hidden="true">
 
     <symbol id="i-inicio" viewBox="0 0 24 24">
-      <path
-        d="M2 11.4 12 3l10 8.4-2 2.2-2-1.7V21h-5v-7h-3v7H5v-9.1l-1 1z"
-        fill="#f6e4a1"
-      />
-      <path
-        d="M3 11.7 12 4l9 7.7M6 12v8h5v-6h3v6h4v-8"
-        fill="none"
-      />
+        <path
+        d="M2 11L12 3L22 11L19 14L18 13V21H14V15H10V21H6V13L5 14Z"
+        fill="#f6e4a1"/>
     </symbol>
-
-    <!-- Programas -->
 
     <symbol id="i-programas" viewBox="0 0 24 24">
-      <rect
-        x="2" y="5"
-        width="20" height="16"
-        rx="3"
-        fill="#d7e0ec"
-      />
-      <rect
-        x="5" y="8"
-        width="14" height="10"
-        rx="1"
-        fill="#65a9d5"
-      />
-      <path
-        d="m7 1 5 4 5-4M9 23h6"
-        fill="none"
-      />
-    </symbol>
+        <rect x="2" y="5" width="20" height="16"
+        rx="3" fill="#d7e0ec"/>
 
-    <!-- Acervo -->
+        <rect x="5" y="8" width="14" height="10"
+        fill="#65a9d5"/>
+
+        <path d="M7 1L12 5L17 1"
+        fill="none"/>
+    </symbol>
 
     <symbol id="i-acervo" viewBox="0 0 24 24">
-      <rect
-        x="2" y="3"
-        width="20" height="18"
-        fill="#e5e6f0"
-      />
-      <path
-        d="M6 3v18M18 3v18M2 8h4m-4 5h4m-4 5h4m12-10h4m-4 5h4m-4 5h4"
-        fill="none"
-      />
-      <rect
-        x="8" y="6"
-        width="8" height="12"
-        fill="#72aedc"
-        stroke="none"
-      />
-    </symbol>
+        <rect x="2" y="3" width="20" height="18"
+        fill="#e5e6f0"/>
 
-    <!-- Emissoras -->
+        <path
+        d="M6 3V21M18 3V21M2 8H6M2 13H6M2 18H6M18 8H22M18 13H22M18 18H22"
+        fill="none"/>
+
+        <rect x="8" y="6" width="8" height="12"
+        fill="#72aedc" stroke="none"/>
+    </symbol>
 
     <symbol id="i-emissoras" viewBox="0 0 24 24">
-      <path
-        d="M12 6 5 21h14z"
-        fill="#b0b6c9"
-      />
-      <path
-        d="M12 6v15M9 13h6M7 18h10M12 3v1"
-        fill="none"
-      />
-      <path
-        d="M8 2a6 6 0 0 0 0 8M16 2a6 6 0 0 1 0 8M5 1a10 10 0 0 0 0 12M19 1a10 10 0 0 1 0 12"
-        fill="none"
-        stroke-width="1.2"
-      />
-    </symbol>
+        <path d="M12 6L5 21H19Z"
+        fill="#b0b6c9"/>
 
-    <!-- Linha do tempo -->
+        <path
+        d="M12 6V21M9 13H15M7 18H17M8 2A6 6 0 0 0 0 8M16 2A6 6 0 0 1 0 8"
+        fill="none"/>
+    </symbol>
 
     <symbol id="i-tempo" viewBox="0 0 24 24">
-      <rect
-        x="2" y="4"
-        width="20" height="18"
-        rx="1"
-        fill="#e7eaf5"
-      />
-      <rect
-        x="2" y="6"
-        width="20" height="5"
-        fill="#bb1f34"
-        stroke="none"
-      />
-      <path
-        d="M7 2v6M17 2v6M2 11h20M7 14v3m5-3v3m5-3v3M7 19h3"
-        fill="none"
-      />
-    </symbol>
+        <rect x="2" y="4" width="20" height="18"
+        fill="#e7eaf5"/>
 
-    <!-- Sobre -->
+        <rect x="2" y="6" width="20" height="5"
+        fill="#bb1f34"/>
+
+        <path
+        d="M7 2V8M17 2V8M7 14V17M12 14V17M17 14V17"
+        fill="none"/>
+    </symbol>
 
     <symbol id="i-sobre" viewBox="0 0 24 24">
-      <circle
-        cx="12" cy="12"
-        r="10"
-        fill="#78aef5"
-      />
-      <path
-        d="M12 10v8M10 10h4M10 18h4"
-        stroke="#fff"
-        stroke-width="2.2"
-        fill="none"
-      />
-      <circle
-        cx="12" cy="6.6"
-        r="1.4"
-        fill="#fff"
-        stroke="none"
-      />
+        <circle cx="12" cy="12" r="10"
+        fill="#78aef5"/>
+
+        <path d="M12 10V18M10 10H14M10 18H14"
+        stroke="white" stroke-width="2"
+        fill="none"/>
+
+        <circle cx="12" cy="6.6" r="1.4"
+        fill="white" stroke="none"/>
     </symbol>
 
-  </svg>
+</svg>
 
-  <!-- ========================================
-       PÁGINA
-       ======================================== -->
+<div class="pagina">
 
-  <div class="pagina">
+<header class="banner">
 
-    <!-- ======================================
-         BANNER NEWSTALGIA
-         ====================================== -->
+    <!-- CIDADE -->
 
-    <header class="banner">
-
-      <!-- Silhueta da cidade -->
-
-      <svg
-        class="silhueta"
-        viewBox="0 0 1440 80"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
+    <svg class="silhueta"
+    viewBox="0 0 1440 80"
+    preserveAspectRatio="none"
+    aria-hidden="true">
 
         <path d="
-          M0 80V38h18V24h11v21h17V31h9v18h30V30h12v22h21V15h11v35h15V33h14v17h25V26h11v24h23V41h14v12h22V27h12v25h22V35h8v18h26V18h14v35h20V40h12v13h28V24h8v28h24V37h16v17h23V13h13v41h26V30h11v21h28V39h17v17h23V18h13v37h27V42h14v14h25V28h17v27h22V37h15v17h29V18h11v38h21V39h15v16h31V30h16v25h26V42h11v14h27V33h18v23h28V21h12v35h32V37h16v20h30V27h11v30h31V44h20v13h25V17h13v39h30V39h15v18h29V26h12v29h26V46h15v11h24V33h15v24h24V20h13v37h28V40h18v17h24V30h17v25h21V43h18v14h27V22h13v37h21V42h11v17h25V29h14v30h24V43h13v16h25V27h12v32h24V46h15v14h20V39h17v41Z
-        "/>
+        M0 80V38H18V24H29V45H46V31H55V49H85
+        V30H97V52H118V15H129V50H144V33H158
+        V50H183V26H194V50H217V41H231V53H253
+        V27H265V52H287V35H295V53H321V18H335
+        V53H355V40H367V53H395V24H403V52H427
+        V37H443V54H466V13H479V54H505V30H516
+        V51H544V39H561V56H584V18H597V55H624
+        V42H638V56H663V28H680V55H702V37H717
+        V54H746V18H757V56H778V39H793V55H824
+        V30H840V55H866V42H877V56H904V33H922
+        V56H950V21H962V56H994V37H1010V57
+        H1040V27H1051V57H1082V44H1102
+        V57H1127V17H1140V56H1170V39H1185
+        V57H1214V26H1226V55H1252V46H1267
+        V57H1291V33H1306V57H1330V20H1343
+        V57H1371V40H1389V57H1440V80Z"/>
 
-        <path
-          d="M0 72h1440"
-          fill="none"
-          stroke="#020840"
-          stroke-width="3"
-        />
+    </svg>
 
-      </svg>
+    <!-- TELEVISOR -->
 
-      <!-- Televisão antiga -->
-
-      <svg
-        class="tv-antiga"
-        viewBox="0 0 150 142"
-        role="img"
-        aria-label="Televisor antigo"
-      >
+    <svg class="tv-antiga"
+    viewBox="0 0 150 142"
+    role="img"
+    aria-label="Televisor antigo">
 
         <defs>
 
-          <linearGradient
-            id="cor-tv"
-            x1="0" y1="0"
-            x2="1" y2="1"
-          >
-            <stop stop-color="#141c45"/>
-            <stop offset=".42" stop-color="#626c8e"/>
-            <stop offset="1" stop-color="#111730"/>
-          </linearGradient>
+            <linearGradient id="cor-tv">
+                <stop stop-color="#141c45"/>
+                <stop offset=".42" stop-color="#626c8e"/>
+                <stop offset="1" stop-color="#111730"/>
+            </linearGradient>
 
-          <radialGradient id="cor-tela">
-            <stop stop-color="#c2d9f5"/>
-            <stop offset=".7" stop-color="#809bcc"/>
-            <stop offset="1" stop-color="#344d81"/>
-          </radialGradient>
+            <radialGradient id="cor-tela">
+                <stop stop-color="#c2d9f5"/>
+                <stop offset=".7" stop-color="#809bcc"/>
+                <stop offset="1" stop-color="#344d81"/>
+            </radialGradient>
 
-          <pattern
-            id="linhas-tela"
-            width="4"
-            height="4"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M0 1h4"
-              stroke="#fff"
-              stroke-opacity=".17"
-              stroke-width="1"
-            />
-          </pattern>
+            <pattern id="linhas-tela"
+            width="4" height="4"
+            patternUnits="userSpaceOnUse">
+
+                <path d="M0 1H4"
+                stroke="#fff"
+                stroke-opacity=".17"/>
+
+            </pattern>
 
         </defs>
 
-        <!-- Gabinete do televisor -->
+        <path
+        d="M22 8L130 14Q143 16 142 31L136 123Q134 135 121 135L13 124Q4 123 5 110L8 29Q9 11 22 8Z"
+        fill="#0b0f27"
+        stroke="#9da6c6"
+        stroke-width="3"/>
 
         <path
-          d="M22 8 130 14q13 2 12 17l-6 92q-2 12-15 12L13 124Q4 123 5 110L8 29Q9 11 22 8Z"
-          fill="#0b0f27"
-          stroke="#9da6c6"
-          stroke-width="3"
-        />
+        d="M24 15L125 20Q135 20 134 32L129 109Q128 121 118 121L19 116Q11 115 12 105L16 28Q17 17 24 15Z"
+        fill="url(#cor-tv)"
+        stroke="#0c153c"
+        stroke-width="3"/>
 
         <path
-          d="M24 15 125 20q10 0 9 12l-5 77q-1 12-11 12L19 116Q11 115 12 105l4-77q1-11 8-13Z"
-          fill="url(#cor-tv)"
-          stroke="#0c153c"
-          stroke-width="3"
-        />
-
-        <!-- Tela -->
+        d="M30 24L117 28Q123 29 122 36L118 103Q118 109 111 109L25 104Q19 104 19 97L22 33Q22 24 30 24Z"
+        fill="url(#cor-tela)"
+        stroke="#d6e7ff"
+        stroke-width="3"/>
 
         <path
-          d="M30 24 117 28q6 1 5 8l-4 67q0 6-7 6L25 104q-6 0-6-7l3-64q0-9 8-9Z"
-          fill="url(#cor-tela)"
-          stroke="#d6e7ff"
-          stroke-width="3"
-        />
+        d="M27 99V76L39 69V82L48 76V68L58 62V93H65V56L74 51V92H81V72L90 66V93H99V79L111 85V104Z"
+        fill="#405b94"
+        opacity=".73"/>
 
-        <!-- Imagem urbana no televisor -->
+        <path d="M24 28H123V109H24Z"
+        fill="url(#linhas-tela)"/>
 
-        <path
-          d="M27 99V76l12-7v13l9-6v-8l10-6v31h7V56l9-5v41h7V72l9-6v27h9V79l12 6v19Z"
-          fill="#405b94"
-          opacity=".73"
-        />
+        <circle cx="115" cy="125" r="2.3"
+        fill="#e3ecff"/>
 
-        <!-- Reflexos -->
+        <path d="M39 137H111"
+        stroke="#11182f"
+        stroke-width="5"
+        stroke-linecap="round"/>
 
-        <path
-          d="M19 33q50-18 103 0"
-          fill="none"
-          stroke="#fff"
-          stroke-opacity=".28"
-          stroke-width="4"
-        />
+    </svg>
 
-        <path
-          d="M24 28h99v81H24Z"
-          fill="url(#linhas-tela)"
-          opacity=".7"
-        />
+    <!-- LOGOTIPO -->
 
-        <!-- Base e controles -->
+    <div class="marca">
 
-        <path
-          d="M24 120h100l-3 9H21Z"
-          fill="#0b1131"
-        />
-
-        <circle
-          cx="115" cy="125"
-          r="2.3"
-          fill="#e3ecff"
-        />
-
-        <path
-          d="M39 137h72"
-          stroke="#11182f"
-          stroke-width="5"
-          stroke-linecap="round"
-        />
-
-      </svg>
-
-      <!-- ====================================
-           LOGOTIPO E SLOGAN
-           ==================================== -->
-
-      <div class="marca">
-
-        <h1 class="logotipo">
-          Newstalgia
-        </h1>
+        <h1 class="logotipo">Newstalgia</h1>
 
         <p class="slogan">
-          As notícias passam. A história permanece.
+            As notícias passam. A história permanece.
         </p>
 
-      </div>
+    </div>
 
-      <!-- ====================================
-           ANTENA PARABÓLICA
-           ==================================== -->
+    <!-- ANTENA PARABÓLICA -->
 
-      <svg
-        class="parabolica"
-        viewBox="0 0 125 136"
-        aria-hidden="true"
-      >
+    <svg class="parabolica"
+    viewBox="0 0 125 136"
+    aria-hidden="true">
 
         <defs>
-          <linearGradient
-            id="prata-antena"
-            x1="0" y1="0"
-            x2="1" y2="1"
-          >
-            <stop stop-color="#e0e9ff"/>
-            <stop offset=".5" stop-color="#95a9d0"/>
-            <stop offset="1" stop-color="#536caa"/>
-          </linearGradient>
+
+            <linearGradient id="prata-antena">
+                <stop stop-color="#e0e9ff"/>
+                <stop offset=".5" stop-color="#95a9d0"/>
+                <stop offset="1" stop-color="#536caa"/>
+            </linearGradient>
+
         </defs>
 
-        <!-- Prato da antena -->
+        <path
+        d="M17 54Q55 2 110 6Q116 62 51 80Z"
+        fill="url(#prata-antena)"
+        stroke="#354b81"
+        stroke-width="2.5"/>
 
         <path
-          d="M17 54q38-52 93-48Q116 62 51 80Z"
-          fill="url(#prata-antena)"
-          stroke="#354b81"
-          stroke-width="2.5"
-        />
-
-        <!-- Linhas estruturais -->
+        d="M17 54L110 6M51 80L110 6M17 54L101 19M41 67L109 18"
+        fill="none"
+        stroke="#627aa9"
+        stroke-width="1.6"/>
 
         <path
-          d="M17 54 110 6M51 80 110 6M17 54l84-35M41 67l68-49"
-          fill="none"
-          stroke="#627aa9"
-          stroke-width="1.6"
-        />
+        d="M52 79L66 91M62 89L75 122M67 91L51 122M53 122H79M65 90L90 30"
+        fill="none"
+        stroke="#8ea5d6"
+        stroke-width="5"/>
 
-        <!-- Reflexos -->
+    </svg>
 
-        <path
-          d="M24 52 35 43M39 36l13 11M58 21l17 18M80 12l15 17M105 10l4 9"
-          fill="none"
-          stroke="#edf1fa"
-          stroke-width="2"
-          opacity=".65"
-        />
+    <!-- CAIXA DE PESQUISA -->
 
-        <!-- Suporte -->
-
-        <path
-          d="M52 79 66 91M62 89 75 122M67 91 51 122M53 122h26M65 90l25-60"
-          fill="none"
-          stroke="#8ea5d6"
-          stroke-width="5"
-        />
-
-        <path
-          d="M89 30 95 29"
-          stroke="#fff"
-          stroke-width="4"
-        />
-
-      </svg>
-
-      <!-- ====================================
-           PESQUISA DO SITE
-           ==================================== -->
-
-      <form
-        class="pesquisa"
-        id="form-pesquisa"
-        role="search"
-      >
+    <form class="pesquisa"
+    id="form-pesquisa"
+    role="search">
 
         <label for="termo-pesquisa">
-          Buscar no site:
+            Buscar no site:
         </label>
 
         <div class="pesquisa-linha">
 
-          <input
+            <input
             id="termo-pesquisa"
             name="q"
             type="search"
             autocomplete="off"
-            aria-label="Buscar no acervo"
-          >
+            aria-label="Buscar no acervo">
 
-          <button type="submit">
-            OK
-          </button>
+            <button type="submit">OK</button>
 
         </div>
 
-      </form>
+    </form>
 
-    </header>
+</header>
 
-    <!-- ======================================
-         BARRA DE NAVEGAÇÃO
-         ====================================== -->
+<!-- MENU -->
 
-    <nav
-      class="navegacao"
-      aria-label="Navegação principal"
-    >
+<nav class="navegacao"
+aria-label="Navegação principal">
 
-      <!-- Início -->
-
-      <a
-        class="link-menu ativo"
-        href="#inicio"
-        data-secao="Início"
-        aria-current="page"
-      >
+    <a class="link-menu ativo"
+    href="index.html"
+    aria-current="page">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-inicio"/>
+            <use href="#i-inicio"/>
         </svg>
 
         <span>Início</span>
 
-      </a>
+    </a>
 
-      <!-- Programas -->
-
-      <a
-        class="link-menu"
-        href="#programas"
-        data-secao="Programas"
-      >
+    <a class="link-menu" href="#programas">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-programas"/>
+            <use href="#i-programas"/>
         </svg>
 
         <span>Programas</span>
 
-      </a>
+    </a>
 
-      <!-- Acervo -->
-
-      <a
-        class="link-menu"
-        href="#acervo"
-        data-secao="Acervo"
-      >
+    <a class="link-menu" href="acervo.html">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-acervo"/>
+            <use href="#i-acervo"/>
         </svg>
 
         <span>Acervo</span>
 
-      </a>
+    </a>
 
-      <!-- Emissoras -->
-
-      <a
-        class="link-menu"
-        href="#emissoras"
-        data-secao="Emissoras"
-      >
+    <a class="link-menu" href="#emissoras">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-emissoras"/>
+            <use href="#i-emissoras"/>
         </svg>
 
         <span>Emissoras</span>
 
-      </a>
+    </a>
 
-      <!-- Linhas do tempo -->
-
-      <a
-        class="link-menu"
-        href="#linhas-do-tempo"
-        data-secao="Linhas do Tempo"
-      >
+    <a class="link-menu" href="#linhas-do-tempo">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-tempo"/>
+            <use href="#i-tempo"/>
         </svg>
 
         <span>Linhas do Tempo</span>
 
-      </a>
+    </a>
 
-      <!-- Sobre -->
-
-      <a
-        class="link-menu"
-        href="#sobre"
-        data-secao="Sobre"
-      >
+    <a class="link-menu" href="#sobre">
 
         <svg class="icone" aria-hidden="true">
-          <use href="#i-sobre"/>
+            <use href="#i-sobre"/>
         </svg>
 
         <span>Sobre</span>
 
-      </a>
+    </a>
 
-    </nav>
+</nav>
 
-    <!-- ======================================
-         ÁREA DE CONTEÚDO
-         ====================================== -->
+<!-- CONTEÚDO PRINCIPAL -->
 
-    <main
-      class="area-principal"
-      id="inicio"
-    >
+<main class="area-principal" id="inicio">
 
-      <!--
-        Esta área ficará vazia inicialmente.
+    <section class="painel"
+    id="painel"
+    hidden>
 
-        Futuramente receberá:
-        - Acervo de vídeos
-        - Resultados de pesquisa
-        - Listagem de programas
-        - Emissoras
-        - Linhas do tempo
+        <h2 class="painel-titulo"
+        id="painel-titulo">
 
-        Programas iniciais:
-        Cidade Alerta
-        Brasil Urgente
-        Repórter Cidadão
-      -->
+            Resultados da pesquisa
 
-      <p
-        id="aviso"
-        class="aviso"
-        role="status"
-        aria-live="polite"
-        hidden
-      ></p>
+        </h2>
 
-    </main>
+        <div class="painel-conteudo">
 
-  </div>
+            <p class="contador"
+            id="contador"
+            role="status"
+            aria-live="polite"></p>
 
-  <!-- ========================================
-       JAVASCRIPT
-       ======================================== -->
+            <div class="lista-resultados"
+            id="resultados"></div>
 
-  <script>
+        </div>
 
-    (() => {
+    </section>
 
-      const aviso =
-        document.getElementById("aviso");
+    <noscript>
 
-      const links =
-        [...document.querySelectorAll(".link-menu")];
+        <p class="aviso">
+            Para utilizar a pesquisa, habilite o JavaScript
+            ou acesse diretamente o
+            <a href="acervo.html">acervo de vídeos</a>.
+        </p>
 
-      const formulario =
-        document.getElementById("form-pesquisa");
+    </noscript>
 
-      const campo =
-        document.getElementById("termo-pesquisa");
+</main>
+
+</div>
+
+<script>
+
+"use strict";
+
+let catalogo = [];
+let catalogoCarregado = false;
+let carregamento = null;
+
+const formulario =
+    document.getElementById("form-pesquisa");
+
+const campo =
+    document.getElementById("termo-pesquisa");
+
+const painel =
+    document.getElementById("painel");
+
+const tituloPainel =
+    document.getElementById("painel-titulo");
+
+const contador =
+    document.getElementById("contador");
+
+const resultados =
+    document.getElementById("resultados");
+
+const linksMenu =
+    [...document.querySelectorAll(".link-menu")];
 
 
-      /* ======================================
-         CONTROLE DO MENU
-         ====================================== */
+/* NORMALIZAÇÃO DOS TERMOS */
 
-      function atualizarSecao() {
+function normalizar(texto) {
 
-        const hash =
-          window.location.hash || "#inicio";
+    return String(texto ?? "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
 
-        const atual =
-          links.find(link =>
-            link.getAttribute("href") === hash
-          ) || links[0];
+}
 
-        links.forEach(link => {
 
-          const selecionado =
-            link === atual;
+/* CARREGAMENTO DO CATÁLOGO */
 
-          link.classList.toggle(
-            "ativo",
-            selecionado
-          );
+async function carregarCatalogo() {
 
-          if (selecionado) {
+    if (catalogoCarregado) {
+        return catalogo;
+    }
 
-            link.setAttribute(
-              "aria-current",
-              "page"
+    if (carregamento) {
+        return carregamento;
+    }
+
+    carregamento = (async () => {
+
+        const resposta = await fetch(
+            "catalogo-player.json",
+            { cache: "no-cache" }
+        );
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "Erro HTTP " + resposta.status
             );
 
-          } else {
+        }
 
-            link.removeAttribute(
-              "aria-current"
-            );
+        const dados = await resposta.json();
 
-          }
+        if (Array.isArray(dados)) {
 
-        });
+            catalogo = dados;
 
-        if (
-          atual.getAttribute("href") === "#inicio"
+        } else if (
+            Array.isArray(dados.campos) &&
+            Array.isArray(dados.registros)
         ) {
 
-          aviso.hidden = true;
-          aviso.textContent = "";
+            catalogo = dados.registros.map(registro =>
+
+                Object.fromEntries(
+
+                    dados.campos.map(
+                        (nome, i) => [nome, registro[i]]
+                    )
+
+                )
+
+            );
 
         } else {
 
-          aviso.textContent =
-            "A seção " +
-            atual.dataset.secao +
-            " está em preparação.";
-
-          aviso.hidden = false;
+            throw new Error("Formato de catálogo inválido");
 
         }
 
-      }
+        catalogo = catalogo.filter(video =>
 
+            video.drive_id &&
+            video.titulo &&
+            !video.duplicata_provavel_de
 
-      /* ======================================
-         PESQUISA PROVISÓRIA
-         ====================================== */
+        );
 
-      formulario.addEventListener(
-        "submit",
-        evento => {
+        catalogoCarregado = true;
 
-          evento.preventDefault();
-
-          const termo =
-            campo.value.trim();
-
-          if (!termo) {
-
-            campo.focus();
-            return;
-
-          }
-
-          aviso.textContent =
-            "A pesquisa por “" +
-            termo +
-            "” estará disponível quando os primeiros vídeos forem cadastrados.";
-
-          aviso.hidden = false;
-
-        }
-      );
-
-
-      /* ======================================
-         EVENTOS DA NAVEGAÇÃO
-         ====================================== */
-
-      window.addEventListener(
-        "hashchange",
-        atualizarSecao
-      );
-
-      atualizarSecao();
+        return catalogo;
 
     })();
 
-  </script>
+    try {
+
+        return await carregamento;
+
+    } finally {
+
+        carregamento = null;
+
+    }
+
+}
+
+
+/* FORMATAÇÃO DE DATA */
+
+function formatarData(data) {
+
+    if (!data) {
+        return "Data não identificada";
+    }
+
+    const valor = String(data);
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(valor)) {
+
+        const [ano, mes, dia] = valor.split("-");
+
+        return `${dia}/${mes}/${ano}`;
+
+    }
+
+    if (/^\d{4}-\d{2}$/.test(valor)) {
+
+        const [ano, mes] = valor.split("-");
+
+        return `${mes}/${ano}`;
+
+    }
+
+    return valor;
+
+}
+
+
+/* MINIATURAS */
+
+function obterMiniatura(video) {
+
+    if (!video.youtube_url) {
+        return "favicon.svg";
+    }
+
+    try {
+
+        const url = new URL(video.youtube_url);
+
+        let codigo = "";
+
+        if (url.hostname === "youtu.be") {
+
+            codigo = url.pathname.slice(1);
+
+        } else if (
+
+            [
+                "youtube.com",
+                "www.youtube.com",
+                "m.youtube.com"
+            ].includes(url.hostname)
+
+        ) {
+
+            codigo = url.searchParams.get("v") || "";
+
+        }
+
+        if (/^[A-Za-z0-9_-]{11}$/.test(codigo)) {
+
+            return `https://i.ytimg.com/vi/${codigo}/hqdefault.jpg`;
+
+        }
+
+    } catch (erro) {
+
+        console.warn("URL inválida:", erro);
+
+    }
+
+    return "favicon.svg";
+
+}
+
+
+/* DURAÇÃO */
+
+function formatarDuracao(segundos) {
+
+    if (!segundos || !Number.isFinite(Number(segundos))) {
+
+        return "";
+
+    }
+
+    const total = Math.floor(Number(segundos));
+
+    const horas = Math.floor(total / 3600);
+
+    const minutos = Math.floor(total % 3600 / 60);
+
+    const restante = total % 60;
+
+    return [horas, minutos, restante]
+
+        .map(numero =>
+
+            String(numero).padStart(2, "0")
+
+        )
+
+        .join(":");
+
+}
+
+
+/* CARTÃO DO VÍDEO */
+
+function criarResultado(video) {
+
+    const item = document.createElement("article");
+
+    item.className = "resultado";
+
+    const endereco =
+
+        "assistir/" +
+        encodeURIComponent(video.drive_id) +
+        ".html";
+
+    const imagemLink = document.createElement("a");
+
+    imagemLink.href = endereco;
+
+    const imagem = document.createElement("img");
+
+    imagem.className = "miniatura";
+
+    imagem.src = obterMiniatura(video);
+
+    imagem.alt = video.titulo;
+
+    imagem.loading = "lazy";
+
+    imagem.addEventListener("error", () => {
+
+        if (!imagem.dataset.fallback) {
+
+            imagem.dataset.fallback = "1";
+
+            imagem.src = "favicon.svg";
+
+        }
+
+    });
+
+    imagemLink.appendChild(imagem);
+
+    const info = document.createElement("div");
+
+    info.className = "resultado-info";
+
+    const titulo = document.createElement("a");
+
+    titulo.className = "resultado-titulo";
+
+    titulo.href = endereco;
+
+    titulo.textContent = video.titulo;
+
+    const meta = document.createElement("p");
+
+    meta.className = "resultado-meta";
+
+    const duracao = formatarDuracao(
+
+        video.duracao_segundos
+
+    );
+
+    meta.textContent = [
+
+        video.programa,
+
+        video.emissora,
+
+        formatarData(video.data_exibicao),
+
+        duracao
+
+    ].filter(Boolean).join(" | ");
+
+    const botao = document.createElement("a");
+
+    botao.className = "assistir";
+
+    botao.href = endereco;
+
+    botao.textContent = "▶ Assistir";
+
+    info.append(titulo, meta, botao);
+
+    item.append(imagemLink, info);
+
+    return item;
+
+}
+
+
+/* EXIBIR RESULTADOS */
+
+function exibirVideos(videos, titulo) {
+
+    painel.hidden = false;
+
+    tituloPainel.textContent = titulo;
+
+    resultados.replaceChildren();
+
+    contador.textContent =
+
+        videos.length === 1
+
+        ? "1 vídeo encontrado"
+
+        : `${videos.length} vídeos encontrados`;
+
+    if (!videos.length) {
+
+        const mensagem = document.createElement("p");
+
+        mensagem.className = "aviso";
+
+        mensagem.textContent =
+
+            "Nenhum vídeo encontrado. Tente outro termo.";
+
+        resultados.appendChild(mensagem);
+
+        return;
+
+    }
+
+    videos.forEach(video => {
+
+        resultados.appendChild(
+
+            criarResultado(video)
+
+        );
+
+    });
+
+}
+
+
+/* BUSCA INTELIGENTE */
+
+async function pesquisar(termo) {
+
+    painel.hidden = false;
+
+    tituloPainel.textContent = "Pesquisando no acervo...";
+
+    contador.textContent = "Carregando catálogo";
+
+    resultados.replaceChildren();
+
+    try {
+
+        await carregarCatalogo();
+
+        const palavras = normalizar(termo)
+
+            .split(/\s+/)
+
+            .filter(Boolean);
+
+        const encontrados = catalogo.filter(video => {
+
+            const texto = normalizar([
+
+                video.titulo,
+
+                video.programa,
+
+                video.emissora,
+
+                video.apresentadores,
+
+                video.apresentador,
+
+                video.reporter,
+
+                video.reporteres,
+
+                video.local_reportagem,
+
+                video.data_exibicao,
+
+                formatarData(video.data_exibicao),
+
+                video.materias_identificadas,
+
+                video.canal_origem,
+
+                video.descricao,
+
+                video.palavras_chave
+
+            ].flat(Infinity).filter(Boolean).join(" "));
+
+            return palavras.every(
+
+                palavra => texto.includes(palavra)
+
+            );
+
+        });
+
+        exibirVideos(
+
+            encontrados,
+
+            `Resultados para: ${termo}`
+
+        );
+
+    } catch (erro) {
+
+        mostrarErro(erro);
+
+    }
+
+}
+
+
+/* TRATAMENTO DE ERROS */
+
+function mostrarErro(erro) {
+
+    console.error(erro);
+
+    painel.hidden = false;
+
+    tituloPainel.textContent = "Acervo indisponível";
+
+    contador.textContent =
+
+        "Não foi possível carregar o catálogo.";
+
+    resultados.replaceChildren();
+
+    const link = document.createElement("a");
+
+    link.href = "acervo.html";
+
+    link.textContent = "Acessar o acervo diretamente";
+
+    resultados.appendChild(link);
+
+}
+
+
+/* FILTROS POR CATEGORIA */
+
+async function exibirCategorias(campo, titulo) {
+
+    painel.hidden = false;
+
+    tituloPainel.textContent = titulo;
+
+    contador.textContent = "Carregando catálogo...";
+
+    resultados.replaceChildren();
+
+    try {
+
+        await carregarCatalogo();
+
+        const grupos = new Map();
+
+        catalogo.forEach(video => {
+
+            let categoria = video[campo];
+
+            if (campo === "data_exibicao") {
+
+                categoria = String(categoria || "")
+
+                    .match(/^\d{4}/)?.[0];
+
+            }
+
+            if (!categoria) {
+
+                categoria = "Não identificado";
+
+            }
+
+            if (!grupos.has(categoria)) {
+
+                grupos.set(categoria, []);
+
+            }
+
+            grupos.get(categoria).push(video);
+
+        });
+
+        contador.textContent =
+
+            `${catalogo.length} vídeos catalogados`;
+
+        const categorias = [...grupos.keys()]
+
+            .sort((a, b) => a.localeCompare(b, "pt-BR"));
+
+        categorias.forEach(categoria => {
+
+            const item = document.createElement("article");
+
+            item.className = "resultado";
+
+            const botao = document.createElement("button");
+
+            botao.className = "assistir";
+
+            botao.style.cursor = "pointer";
+
+            const videos = grupos.get(categoria);
+
+            botao.textContent =
+
+                `${categoria} (${videos.length} vídeos)`;
+
+            botao.addEventListener("click", () => {
+
+                exibirVideos(videos, categoria);
+
+            });
+
+            item.appendChild(botao);
+
+            resultados.appendChild(item);
+
+        });
+
+    } catch (erro) {
+
+        mostrarErro(erro);
+
+    }
+
+}
+
+
+/* SOBRE O PROJETO */
+
+function exibirSobre() {
+
+    painel.hidden = false;
+
+    tituloPainel.textContent = "Sobre o Newstalgia";
+
+    contador.textContent = "";
+
+    resultados.replaceChildren();
+
+    const paragrafo = document.createElement("p");
+
+    paragrafo.textContent =
+
+        "O Newstalgia é um acervo digital dedicado à " +
+
+        "preservação da memória do jornalismo televisivo " +
+
+        "brasileiro, reunindo reportagens e edições " +
+
+        "históricas das décadas de 1990 e 2000.";
+
+    const programas = document.createElement("p");
+
+    programas.textContent =
+
+        "Programas iniciais: Cidade Alerta, Brasil Urgente " +
+
+        "e Repórter Cidadão.";
+
+    const slogan = document.createElement("strong");
+
+    slogan.textContent =
+
+        "As notícias passam. A história permanece.";
+
+    resultados.append(paragrafo, programas, slogan);
+
+}
+
+
+/* CONTROLE DO MENU */
+
+function atualizarMenu(hash) {
+
+    linksMenu.forEach(link => {
+
+        const ativo = hash
+
+            ? link.getAttribute("href") === hash
+
+            : link.getAttribute("href") === "index.html";
+
+        link.classList.toggle("ativo", ativo);
+
+        if (ativo) {
+
+            link.setAttribute("aria-current", "page");
+
+        } else {
+
+            link.removeAttribute("aria-current");
+
+        }
+
+    });
+
+}
+
+
+/* NAVEGAÇÃO INTERNA */
+
+function atualizarSecao() {
+
+    const hash = window.location.hash;
+
+    atualizarMenu(hash);
+
+    switch (hash) {
+
+        case "#programas":
+
+            exibirCategorias("programa", "Programas");
+
+            break;
+
+        case "#emissoras":
+
+            exibirCategorias("emissora", "Emissoras");
+
+            break;
+
+        case "#linhas-do-tempo":
+
+            exibirCategorias(
+
+                "data_exibicao",
+
+                "Linhas do Tempo"
+
+            );
+
+            break;
+
+        case "#sobre":
+
+            exibirSobre();
+
+            break;
+
+        default:
+
+            painel.hidden = true;
+
+    }
+
+}
+
+
+/* EVENTO DE PESQUISA */
+
+formulario.addEventListener("submit", evento => {
+
+    evento.preventDefault();
+
+    const termo = campo.value.trim();
+
+    if (!termo) {
+
+        campo.focus();
+
+        return;
+
+    }
+
+    history.replaceState(
+
+        null,
+
+        "",
+
+        "?q=" + encodeURIComponent(termo)
+
+    );
+
+    atualizarMenu("");
+
+    pesquisar(termo);
+
+});
+
+
+/* INICIALIZAÇÃO */
+
+window.addEventListener("hashchange", atualizarSecao);
+
+const pesquisaInicial = new URLSearchParams(
+
+    window.location.search
+
+).get("q");
+
+if (window.location.hash) {
+
+    atualizarSecao();
+
+} else if (pesquisaInicial) {
+
+    campo.value = pesquisaInicial;
+
+    pesquisar(pesquisaInicial);
+
+} else {
+
+    atualizarSecao();
+
+}
+
+</script>
 
 </body>
 
