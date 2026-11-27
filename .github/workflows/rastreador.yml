@@ -1,0 +1,70 @@
+
+name: Newstalgia - Acervo e Rastreador
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '17 10 * * 1'
+
+  push:
+    paths:
+      - 'catalogo-player.json'
+      - 'gerar_paginas.py'
+      - 'player.css'
+      - 'player.js'
+      - 'rastreador.py'
+      - '.github/workflows/rastreador.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newstalgia-rastreador
+  cancel-in-progress: false
+
+jobs:
+
+  atualizar-acervo:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Acessar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Testar rastreador
+        run: python rastreador.py --self-test
+
+      - name: Gerar páginas e metadados
+        run: python gerar_paginas.py
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+
+      - name: Procurar materiais históricos
+        if: github.event_name != 'push'
+        run: python rastreador.py
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+
+      - name: Salvar atualizações
+        run: |
+          git config user.name "newstalgia-bot"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma atualização necessária."
+          else
+            git commit -m "Atualizar acervo Newstalgia"
+            git push
+          fi
