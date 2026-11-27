@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import urlencode, urlsplit, parse_qs
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
+from classificador import classificar
 
 ROOT = Path(__file__).resolve().parent
 
@@ -374,6 +375,10 @@ def executar():
     chaves_selecionadas = set()
 
     for item in descobertas:
+         item = classificar(item)
+
+        if item["relevancia"] < 30:
+            continue
 
         identificador = item.get("id")
 

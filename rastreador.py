@@ -6,6 +6,7 @@ import html
 import argparse
 import unicodedata
 
+from classificador import classificar, APRESENTADORES
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode, urlsplit, parse_qs, quote
@@ -165,13 +166,13 @@ def buscar_archive(programa, pagina):
     return resultados
 
 
-def buscar_youtube(programa, ano):
+def buscar_youtube(programa, ano, termo=""):
 
     dados = consultar(
         "https://www.googleapis.com/youtube/v3/search",
         {
             "part": "snippet",
-            "q": f'"{programa}" {ano}',
+            "q": f'"{programa}" {ano} {termo}'.strip(),
             "type": "video",
             "maxResults": 50,
             "relevanceLanguage": "pt",
@@ -383,6 +384,42 @@ def executar():
                     lambda p=programa, a=ano: buscar_web(p, a)
                 ))
 
+    if YOUTUBE_API_KEY:
+
+        ano_rotativo = args.inicio + (
+            datetime.now(timezone.utc).toordinal()
+            % (args.fim - args.inicio + 1)
+        )
+
+        for programa, nomes in APRESENTADORES.items():
+
+            for nome in nomes:
+
+                tarefas.append((
+                    "YouTube",
+                    programa,
+                    ano_rotativo,
+                    lambda p=programa, a=ano_rotativo, n=nome:
+                        buscar_youtube(p, a, n)
+                ))
+
+            for termo in [
+                "edição completa",
+                "reportagem",
+                "VHS",
+                "Pedro Janov",
+                "Marckezini"
+            ]:
+
+                tarefas.append((
+                    "YouTube",
+                    programa,
+                    ano_rotativo,
+                    lambda p=programa, a=ano_rotativo, t=termo:
+                        buscar_youtube(p, a, t)
+                ))
+
+
     print(f"Consultas planejadas: {len(tarefas)}")
 
     if args.dry_run:
@@ -396,6 +433,10 @@ def executar():
         try:
 
             for item in pesquisa():
+                 item = classificar(item)
+
+                if item["relevancia"] < 30:
+                    continue
 
                 identificador = item["id"]
 
