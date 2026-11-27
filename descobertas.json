@@ -1799,5 +1799,47 @@
     "criador": null,
     "licenca_informada": null,
     "data_informada_pela_fonte": null
+  },
+  {
+    "id": "archive:youtube-cjJdmN20fVo",
+    "programa": "Brasil Urgente",
+    "titulo": "Brasil Urgente - Pancadaria no diretório do PT (Band/2002)",
+    "descricao_fonte": "Brasil Urgente mostra o quebra quebra no diretório do PT, por causa da expulsão do então vereador Carlos Giannazi.",
+    "url": "https://archive.org/details/youtube-cjJdmN20fVo",
+    "fonte": "Internet Archive",
+    "anos_mencionados": [
+      "2002"
+    ],
+    "data_exibicao": null,
+    "apresentador": null,
+    "reporter": null,
+    "local_reportagem": null,
+    "duracao_segundos": null,
+    "status": "Pendente de revisão",
+    "descoberto_em": "2026-11-27T22:19:06.403779+00:00",
+    "criador": "Arquivo Marckezini",
+    "licenca_informada": null,
+    "data_informada_pela_fonte": "2018-07-18T00:00:00Z"
+  },
+  {
+    "id": "archive:youtube-CoirlbVCFJM",
+    "programa": "Brasil Urgente",
+    "titulo": "Brasil Urgente e Jornal da Band - Silvio Santos doente? (2003)",
+    "descricao_fonte": "Silvio Santos deu uma entrevista bem louca pra revista Contigo e causou polêmica, sendo destaque no jornalismo da Bandeirantes. 2003.",
+    "url": "https://archive.org/details/youtube-CoirlbVCFJM",
+    "fonte": "Internet Archive",
+    "anos_mencionados": [
+      "2003"
+    ],
+    "data_exibicao": null,
+    "apresentador": null,
+    "reporter": null,
+    "local_reportagem": null,
+    "duracao_segundos": null,
+    "status": "Pendente de revisão",
+    "descoberto_em": "2026-11-27T22:19:06.403804+00:00",
+    "criador": "Arquivo Marckezini",
+    "licenca_informada": null,
+    "data_informada_pela_fonte": "2022-03-25T00:00:00Z"
   }
 ]
