@@ -1,144 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Acervo histórico do jornalismo televisivo brasileiro.">
-    <title>Newstalgia - Acervo</title>
-    <link rel="stylesheet" href="player.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acervo | Newstalgia</title>
+<meta name="description" content="Acervo histórico do jornalismo televisivo brasileiro.">
+<link rel="stylesheet" href="player.css">
 </head>
 <body>
-
 <main>
-    <header>
-        <div class="brand">Newstalgia</div>
-        <p class="tag">As notícias passam. A história permanece.</p>
-    </header>
+<div class="brand">Newstalgia</div>
+<p class="tag">As notícias passam. A história permanece.</p>
+<nav class="menu"><a href="index.html">Início</a></nav>
+<h1>Acervo de vídeos</h1>
 
-    <nav class="menu">
-        <a href="index.html">Início</a> |
-        <a href="acervo.html">Acervo</a>
-    </nav>
+<input type="search" id="busca" placeholder="Pesquisar no acervo">
 
-    <h1>Acervo de vídeos</h1>
+<select id="programa">
+<option value="">Todos os programas</option>
+<option>Cidade Alerta</option>
+<option>Brasil Urgente</option>
+<option>Repórter Cidadão</option>
+</select>
 
-    <input type="search" id="busca"
-           placeholder="Pesquisar reportagens, apresentadores e datas">
-
-    <select id="programa">
-        <option value="">Todos os programas</option>
-        <option>Cidade Alerta</option>
-        <option>Brasil Urgente</option>
-        <option>Repórter Cidadão</option>
-    </select>
-
-    <p id="contador" aria-live="polite"></p>
-
-    <ul id="resultados" class="results"></ul>
-
-    <footer class="muted">
-        Newstalgia — Memória do jornalismo televisivo brasileiro.
-    </footer>
+<p id="contador" aria-live="polite"></p>
+<ul class="results">
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta e Brasil Urgente - Ratinho sofre acidente grave (2004) Cidade Alerta Rede Record Marcelo Rezende; José Luiz Datena A identificar 2004 A identificar A identificar Acidente rodoviário envolvendo Carlos Massa Fabio Marckezini"><a href="assistir/1PMQlX-o6FT8PJ_oLt6Aow4lWDCPDoIVG.html">Cidade Alerta e Brasil Urgente - Ratinho sofre acidente grave (2004)</a><p class="muted">Cidade Alerta | 2004</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Rebelião em Sorocaba (Record1997) Cidade Alerta Rede Record João Leite Neto A identificar 1997 Sorocaba, SP A identificar Rebelião em Sorocaba Fabio Marckezini"><a href="assistir/1VI8xtL0HLQSa4hTnrlzjVqJQLq2wBgMY.html">Cidade Alerta - Rebelião em Sorocaba (Record1997)</a><p class="muted">Cidade Alerta | 1997</p></li>
+<li data-programa="Cidade Alerta" data-search="Cobertura das enchentes de SP 01031999 - JN e Cidade Alerta Cidade Alerta Rede Record José Luiz Datena A identificar 1999-03-01 São Paulo, SP A identificar Enchentes em São Paulo Fabio Marckezini"><a href="assistir/1utEZWaZCChFj9d8BHG_dBsPjADVB-ipK.html">Cobertura das enchentes de SP 01031999 - JN e Cidade Alerta</a><p class="muted">Cidade Alerta | 1999-03-01</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Implosão do Palace II (Record1998) Cidade Alerta Rede Record João Leite Neto; Gilberto Barros A identificar 1998 Rio de Janeiro, RJ A identificar Implosão do edifício Palace II Fabio Marckezini"><a href="assistir/18Me_izTd9qIHXCpIydGMTzfLhK9FlDSs.html">Cidade Alerta - Implosão do Palace II (Record1998)</a><p class="muted">Cidade Alerta | 1998</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Cinegrafista da Rede Minas é presa (Record2004) Cidade Alerta Rede Record Marcelo Rezende A identificar 2004 A identificar A identificar Prisão de cinegrafista da Rede Minas Fabio Marckezini"><a href="assistir/1GLvc35F08m8OWOGHRDGQ9JU435P6U-V4.html">Cidade Alerta - Cinegrafista da Rede Minas é presa (Record2004)</a><p class="muted">Cidade Alerta | 2004</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Belo está preso (Record2002) Cidade Alerta Rede Record A identificar A identificar 2002 A identificar A identificar Noticiário sobre a prisão do cantor Belo Fabio Marckezini"><a href="assistir/1_vjADxp4-261QNRC8AYnYkcnoNcQDeR8.html">Cidade Alerta - Belo está preso (Record2002)</a><p class="muted">Cidade Alerta | 2002</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - O som da violência (Record2003) Cidade Alerta Rede Record A identificar A identificar 2003 A identificar A identificar O som da violência Fabio Marckezini"><a href="assistir/1mP6ixBo9xgSa9yh_Qf4QGQuXK_9r939z.html">Cidade Alerta - O som da violência (Record2003)</a><p class="muted">Cidade Alerta | 2003</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Estreia de Marcelo Rezende (Record2004) Cidade Alerta Rede Record Marcelo Rezende A identificar 2004-03-01 A identificar A identificar A identificar Fabio Marckezini"><a href="assistir/1T2mmo-fxUyz9K8Oc0OJSqfJ5apMtJ4XK.html">Cidade Alerta - Estreia de Marcelo Rezende (Record2004)</a><p class="muted">Cidade Alerta | 2004-03-01</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Silvio Santos Voltando para Casa (Record2001) Cidade Alerta Rede Record José Luiz Datena A identificar 2001 A identificar A identificar Silvio Santos voltando para casa Fabio Marckezini"><a href="assistir/18_c2pBcl5LOOowhGL368kmB59NfHDkJK.html">Cidade Alerta - Silvio Santos Voltando para Casa (Record2001)</a><p class="muted">Cidade Alerta | 2001</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - Milton Neves (Record2003) Cidade Alerta Rede Record Milton Neves A identificar 2003 A identificar A identificar A identificar Fabio Marckezini"><a href="assistir/1p05ElPYEUT-8YORyChgVFXBd9_GdXOrg.html">Cidade Alerta - Milton Neves (Record2003)</a><p class="muted">Cidade Alerta | 2003</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - O Barco Link (Record2003) Cidade Alerta Rede Record José Luiz Datena A identificar 2003-01 A identificar 57.655147 Apresentação do Barco Link Fabio Marckezini"><a href="assistir/1M_Jhqrp6xz2vWi5l1HmNxehfMDMDqUtX.html">Cidade Alerta - O Barco Link (Record2003)</a><p class="muted">Cidade Alerta | 2003-01</p></li>
+<li data-programa="Cidade Alerta" data-search="Note Anote com RatinhoCidade Alerta - xx081998 Cidade Alerta Rede Record Gilberto Barros; José Luiz Datena A identificar 1998-08 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1bUfdE2BjnCdHmSZmwhgKEjYqSN7AxkAN.html">Note Anote com RatinhoCidade Alerta - xx081998</a><p class="muted">Cidade Alerta | 1998-08</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta como se comportar em caso de sequestro - 2001 Cidade Alerta Rede Record José Luiz Datena A identificar 2001 A identificar A identificar Orientações em caso de sequestro Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1yO5TagvZ2heooYI0rGVXsw9yuim2DxsG.html">Cidade Alerta como se comportar em caso de sequestro - 2001</a><p class="muted">Cidade Alerta | 2001</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - xxxx1997 Cidade Alerta Rede Record João Leite Neto A identificar 1997 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1PJTHmLfMszSpM6Wyfp6BMg6TifVY2Olk.html">Cidade Alerta - xxxx1997</a><p class="muted">Cidade Alerta | 1997</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta Informe SP JN 18071996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-07-18 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1qF41TF2KIdgMFbcq7_rYBgcHlhWGzGWp.html">Cidade Alerta Informe SP JN 18071996</a><p class="muted">Cidade Alerta | 1996-07-18</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade AlertaSPTVJNetc - 04101996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-10-04 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1GFcdYxweUvB9EI_mZs5t2Nu95JGZ2tmR.html">Cidade AlertaSPTVJNetc - 04101996</a><p class="muted">Cidade Alerta | 1996-10-04</p></li>
+<li data-programa="Cidade Alerta" data-search="Pra Valer Russomano - Tempo quente - Canal 21 - SPTV - Cidade Alerta - 1998 Cidade Alerta Rede Record João Leite Neto; Gilberto Barros; José Luiz Datena A identificar 1998 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1LkvbqT9RdWKtQKeOJpX3rCbG_93ZfGsf.html">Pra Valer Russomano - Tempo quente - Canal 21 - SPTV - Cidade Alerta - 1998</a><p class="muted">Cidade Alerta | 1998</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta eleições 96 - 03101996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-10-03 A identificar A identificar Eleições municipais de 1996 Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1t2Z7aWgmZK0Zs6D66gaheUNemtbBT7eL.html">Cidade Alerta eleições 96 - 03101996</a><p class="muted">Cidade Alerta | 1996-10-03</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade AlertaCanal 21 - 16021998 Cidade Alerta Rede Record João Leite Neto; Gilberto Barros A identificar 1998-02-16 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1CNZ4jL7WYjF3xXweKylZDLP4hEAg6Dnm.html">Cidade AlertaCanal 21 - 16021998</a><p class="muted">Cidade Alerta | 1998-02-16</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta - 03091996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-09-03 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1gxeNF_cVLz8G6Adsc2mbGFi3qjo4_nBf.html">Cidade Alerta - 03091996</a><p class="muted">Cidade Alerta | 1996-09-03</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta desvendando o golpe das tampinhas - 1997 Cidade Alerta Rede Record João Leite Neto A identificar 1997 A identificar A identificar Golpe das tampinhas Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1ejj8ikGobkTxxOWLq44yH_m0y1Goa17c.html">Cidade Alerta desvendando o golpe das tampinhas - 1997</a><p class="muted">Cidade Alerta | 1997</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta Patrulha do Consumidor - 16101996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-10-16 A identificar A identificar Patrulha do Consumidor Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1HAfszMKr7AnWXBD0l_5x703ydbAuciE1.html">Cidade Alerta Patrulha do Consumidor - 16101996</a><p class="muted">Cidade Alerta | 1996-10-16</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta Informe MG - 01011999 Cidade Alerta Rede Record José Luiz Datena A identificar 1999-01-01 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1LXSnzCx-Jr7-qG7iR6jif9KUa4i2Rubf.html">Cidade Alerta Informe MG - 01011999</a><p class="muted">Cidade Alerta | 1999-01-01</p></li>
+<li data-programa="Cidade Alerta" data-search="SPTVCidade Alerta etc - 27021998 Cidade Alerta Rede Record João Leite Neto; Gilberto Barros A identificar 1998-02-27 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/153A2bLPQrRJ34GNbifu82MsqHfdmlkc7.html">SPTVCidade Alerta etc - 27021998</a><p class="muted">Cidade Alerta | 1998-02-27</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade AlertaJornal da RecordJN - 15111997 Cidade Alerta Rede Record João Leite Neto A identificar 1997-11-15 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1XXjDYByiqKv7ia_ZxLCfdFlNNGKUUR8z.html">Cidade AlertaJornal da RecordJN - 15111997</a><p class="muted">Cidade Alerta | 1997-11-15</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade AlertaSPTV etc - 02111996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-11-02 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1_hboVCEDCYciORtyChTBZf4vUwEPYqbW.html">Cidade AlertaSPTV etc - 02111996</a><p class="muted">Cidade Alerta | 1996-11-02</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta JN etc 1997 Cidade Alerta Rede Record João Leite Neto A identificar 1997 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1QvzisN6tni42VYvwJq8YA_I_ShxHkqWq.html">Cidade Alerta JN etc 1997</a><p class="muted">Cidade Alerta | 1997</p></li>
+<li data-programa="Cidade Alerta" data-search="Cidade Alerta SPTV JR 16 10 1996 Cidade Alerta Rede Record Ney Gonçalves Dias A identificar 1996-10-16 A identificar A identificar A identificar Pedro Janov e seu Arquivo de Vídeos"><a href="assistir/1mudTbMdD3qdtSa8ED2l_ntqU0yv0gULV.html">Cidade Alerta SPTV JR 16 10 1996</a><p class="muted">Cidade Alerta | 1996-10-16</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - As enchentes em Santa Catarina (Band2008) Brasil Urgente Rede Bandeirantes José Luiz Datena A identificar 2008 Santa Catarina, Brasil A identificar Enchentes em Santa Catarina Fabio Marckezini"><a href="assistir/16jjUwtXXNgOS7JxjxdOBGTPVKOhMITgK.html">Brasil Urgente - As enchentes em Santa Catarina (Band2008)</a><p class="muted">Brasil Urgente | 2008</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Pancadaria no diretório do PT (Band2002) Brasil Urgente Rede Bandeirantes Roberto Cabrini A identificar 2002 A identificar A identificar Confusão no diretório do PT Fabio Marckezini"><a href="assistir/1jEcK8DLmA33qyPvvF_nLV6ByFUcZX5Wk.html">Brasil Urgente - Pancadaria no diretório do PT (Band2002)</a><p class="muted">Brasil Urgente | 2002</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Ordem de despejo (Band2001) Brasil Urgente Rede Bandeirantes Roberto Cabrini A identificar 2001 A identificar A identificar Ordem de despejo Fabio Marckezini"><a href="assistir/1wrqtNd_KsyPuugI3wx5p0QEn8PbhRtNU.html">Brasil Urgente - Ordem de despejo (Band2001)</a><p class="muted">Brasil Urgente | 2001</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Gugu e o Caso PCC (2003) Brasil Urgente Rede Bandeirantes José Luiz Datena A identificar 2003-09 A identificar A identificar Repercussão da entrevista forjada no Domingo Legal Fabio Marckezini"><a href="assistir/1qwhIW6OIrEOAaMUxElf0rp0ANtxsHXVx.html">Brasil Urgente - Gugu e o Caso PCC (2003)</a><p class="muted">Brasil Urgente | 2003-09</p></li>
+<li data-programa="Brasil Urgente" data-search="Estreia de Datena no Brasil Urgente - Trecho (Band2003) Brasil Urgente Rede Bandeirantes José Luiz Datena A identificar 2003-03-10 A identificar A identificar A identificar Fabio Marckezini"><a href="assistir/1Fg7DBVWSISDDTp1RNDX2dA1cY1TGSZz6.html">Estreia de Datena no Brasil Urgente - Trecho (Band2003)</a><p class="muted">Brasil Urgente | 2003-03-10</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Comandante americano preso - Bomba na rua (Band2004) Brasil Urgente Rede Bandeirantes José Luiz Datena A identificar 2004 A identificar A identificar Prisão de comandante americano; Bomba na rua Fabio Marckezini"><a href="assistir/1V6aVIptYKwB1CCUD4-GAg6dMOQOf0rNV.html">Brasil Urgente - Comandante americano preso - Bomba na rua (Band2004)</a><p class="muted">Brasil Urgente | 2004</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Silvio Luiz vestido de gaúcho (Band2002) Brasil Urgente Rede Bandeirantes Roberto Cabrini A identificar 2002 A identificar A identificar Silvio Luiz vestido de gaúcho Fabio Marckezini"><a href="assistir/1kyL3dj92fnHKh5jH-WbJOm2nh4fmpWdC.html">Brasil Urgente - Silvio Luiz vestido de gaúcho (Band2002)</a><p class="muted">Brasil Urgente | 2002</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Prefeita x Moradora (Band2004) Brasil Urgente Rede Bandeirantes José Luiz Datena A identificar 2004 A identificar A identificar Confronto entre prefeita e moradora Fabio Marckezini"><a href="assistir/1xanwACIuYyVv5SPgQiaQ_x3OucHzsuhr.html">Brasil Urgente - Prefeita x Moradora (Band2004)</a><p class="muted">Brasil Urgente | 2004</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - Rena ataca Papai Noel e vira churrasco (Band2001) Brasil Urgente Rede Bandeirantes Roberto Cabrini A identificar 2001 A identificar A identificar Notícia sobre rena e Papai Noel Fabio Marckezini"><a href="assistir/1KBytUUpcCP4PEzxkGV_dKBcu0pKypsL9.html">Brasil Urgente - Rena ataca Papai Noel e vira churrasco (Band2001)</a><p class="muted">Brasil Urgente | 2001</p></li>
+<li data-programa="Brasil Urgente" data-search="Brasil Urgente - A revolta dos camelôs (Band2002) Brasil Urgente Rede Bandeirantes Roberto Cabrini A identificar 2002 A identificar A identificar Protesto ou conflito envolvendo vendedores ambulantes Fabio Marckezini"><a href="assistir/1Xmwu0TfZxn2uIzQ0aEt5T2p-e1ZHArpa.html">Brasil Urgente - A revolta dos camelôs (Band2002)</a><p class="muted">Brasil Urgente | 2002</p></li>
+<li data-programa="Repórter Cidadão" data-search="Repórter Cidadão - Dolly x Coca Cola (RedeTV2003) Repórter Cidadão RedeTV! Marcelo Rezende A identificar 2003 A identificar A identificar Denúncias envolvendo Dolly e Coca-Cola Fabio Marckezini"><a href="assistir/1G_KvDdI3iKfVMJGYYyi6uv3_mGQ8m1Bh.html">Repórter Cidadão - Dolly x Coca Cola (RedeTV2003)</a><p class="muted">Repórter Cidadão | 2003</p></li>
+<li data-programa="Repórter Cidadão" data-search="Repórter Cidadão - Gugu e o Caso PCC (RedeTV 2003) Repórter Cidadão RedeTV! Marcelo Rezende A identificar 2003-09 A identificar A identificar Repercussão da entrevista forjada no Domingo Legal Fabio Marckezini"><a href="assistir/1Ix1FDUf7fOiMQbz5Jf7-IH-1CNEh786Q.html">Repórter Cidadão - Gugu e o Caso PCC (RedeTV 2003)</a><p class="muted">Repórter Cidadão | 2003-09</p></li>
+</ul>
 </main>
 
 <script>
-let catalogo = [];
+const busca = document.querySelector("#busca");
+const programa = document.querySelector("#programa");
+const itens = [...document.querySelectorAll(".results li")];
 
-function normalizar(texto) {
-    return String(texto ?? "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase();
-}
-
-async function carregarCatalogo() {
-    try {
-        const resposta = await fetch("catalogo-player.json");
-
-        if (!resposta.ok) {
-            throw new Error("Catálogo indisponível");
-        }
-
-        const dados = await resposta.json();
-
-        catalogo = Array.isArray(dados)
-            ? dados
-            : dados.registros.map(registro =>
-                Object.fromEntries(
-                    dados.campos.map((campo, i) =>
-                        [campo, registro[i]]
-                    )
-                )
-            );
-
-        pesquisar();
-
-    } catch (erro) {
-        document.getElementById("contador").textContent =
-            "Não foi possível carregar o acervo.";
-    }
-}
+const normalizar = texto => texto.normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 function pesquisar() {
-    const termo = normalizar(
-        document.getElementById("busca").value
-    );
+    let total = 0;
 
-    const programa = document.getElementById("programa").value;
-    const resultados = document.getElementById("resultados");
+    for (const item of itens) {
+        const texto = normalizar(
+            item.textContent + " " + item.dataset.search
+        );
 
-    resultados.replaceChildren();
+        item.hidden = !(
+            texto.includes(normalizar(busca.value)) &&
+            (!programa.value ||
+                programa.value === item.dataset.programa)
+        );
 
-    const filtrados = catalogo.filter(video => {
-        if (video.duplicata_provavel_de) return false;
+        if (!item.hidden) total++;
+    }
 
-        const texto = normalizar([
-            video.titulo,
-            video.programa,
-            video.emissora,
-            video.apresentadores,
-            video.reporter,
-            video.data_exibicao,
-            video.local_reportagem,
-            video.materias_identificadas
-        ].join(" "));
-
-        return texto.includes(termo) &&
-            (!programa || video.programa === programa);
-    });
-
-    document.getElementById("contador").textContent =
-        filtrados.length + " vídeos encontrados";
-
-    filtrados.forEach(video => {
-        const item = document.createElement("li");
-        const link = document.createElement("a");
-        const info = document.createElement("p");
-
-        link.href = "assistir/" +
-            encodeURIComponent(video.drive_id) + ".html";
-
-        link.textContent = video.titulo;
-
-        info.className = "muted";
-        info.textContent =
-            video.programa + " | " +
-            (video.data_exibicao || "Data não identificada");
-
-        item.append(link, info);
-        resultados.appendChild(item);
-    });
+    document.querySelector("#contador").textContent =
+        total + " vídeos encontrados";
 }
 
-document.getElementById("busca")
-    .addEventListener("input", pesquisar);
-
-document.getElementById("programa")
-    .addEventListener("change", pesquisar);
-
-carregarCatalogo();
+busca.oninput = pesquisar;
+programa.onchange = pesquisar;
+pesquisar();
 </script>
-
 </body>
 </html>
