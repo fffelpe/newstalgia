@@ -226,3 +226,90 @@ footer {
         margin-top: 8px;
     }
 }
+
+/* NEWSTALGIA PLAYER 1.0 */
+
+.window {
+    border-color: #132985;
+    background: #101c59;
+}
+
+.titlebar {
+    background: linear-gradient(
+        #718cda,
+        #1635a3 40%,
+        #061477 90%
+    );
+    border-bottom: 2px solid #ed2534;
+}
+
+.buffer-panel {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 7px;
+
+    background: #101b3d;
+    border: 2px inset #8596bc;
+
+    color: #a9e9ac;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.buffer-track {
+    flex: 1;
+    height: 12px;
+    background: #080e20;
+    border: 1px solid #687ca5;
+    overflow: hidden;
+}
+
+.buffer-fill {
+    width: 0%;
+    height: 100%;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #74d66c 0px,
+        #74d66c 7px,
+        #15283e 7px,
+        #15283e 10px
+    );
+
+    transition: width .2s linear;
+}
+
+.buffer-percent {
+    min-width: 36px;
+    text-align: right;
+}
+
+.clock {
+    font-family: "Courier New", monospace;
+    background: #111c34;
+    color: #a8efa8;
+    padding: 5px 8px;
+    border: 2px inset #8192b5;
+}
+
+.player-signature {
+    order: 3;
+    padding: 5px 10px;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1.5px;
+
+    color: #dce5ff;
+
+    background: linear-gradient(
+        #263f8a,
+        #061477
+    );
+
+    border-top: 2px solid #ed2534;
+}
