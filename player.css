@@ -313,3 +313,433 @@ footer {
 
     border-top: 2px solid #ed2534;
 }
+
+/* =========================================
+   NEWSTALGIA PLAYER 1.0
+   RETRO INTERNET MEDIA TECHNOLOGY
+   ========================================= */
+
+.window {
+    max-width: 760px;
+    margin: 20px auto;
+    border: 4px ridge #718cda;
+    border-radius: 7px 7px 2px 2px;
+    background: #061477;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* BARRA DE TÍTULO */
+
+.titlebar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 32px;
+    padding: 6px 9px;
+
+    color: white;
+    font-weight: bold;
+
+    background: linear-gradient(
+        #7798e9,
+        #274cb5 30%,
+        #061477 85%
+    );
+
+    border-bottom: 2px solid #ed2534;
+    text-shadow: 1px 1px 2px black;
+}
+
+.nt-window-icon {
+    width: 19px;
+    height: 19px;
+}
+
+.nt-window-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* TELA DE VÍDEO */
+
+.stage {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    overflow: hidden;
+}
+
+.stage video {
+    object-fit: contain;
+}
+
+/* TELA DE ABERTURA */
+
+.nt-splash {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 15px;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 3px,
+            rgba(255,255,255,.025) 3px 4px
+        ),
+        radial-gradient(
+            ellipse at center,
+            #152b6b,
+            #070c24 65%,
+            #000
+        );
+
+    color: #f0f4ff;
+}
+
+.nt-splash[hidden] {
+    display: none !important;
+}
+
+.nt-splash-logo {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 15px;
+
+    filter: drop-shadow(
+        0 0 15px #426bda
+    );
+}
+
+.nt-splash-brand {
+    font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+    font-size: clamp(28px, 6vw, 58px);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 2px;
+
+    background: linear-gradient(
+        white,
+        #c8d7f4,
+        #8c9fc6,
+        white
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nt-splash-version {
+    color: #d5e0ff;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin: 4px 0 20px;
+}
+
+.nt-splash-line {
+    width: 65%;
+    height: 3px;
+    margin: 8px 0 16px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ed2534,
+        transparent
+    );
+}
+
+.nt-splash-slogan {
+    color: #b7c5e8;
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 18px;
+}
+
+/* ANIMAÇÃO DE CONEXÃO */
+
+.nt-connection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nt-led {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    background: #1e4226;
+    border: 1px solid #698b65;
+
+    box-shadow: inset 0 1px 2px #000;
+}
+
+.nt-connecting .nt-led {
+    animation: nt-connect 1.2s infinite;
+}
+
+.nt-connecting .nt-led:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.nt-connecting .nt-led:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.nt-connected .nt-led {
+    background: #84ff6c;
+    box-shadow: 0 0 6px #51d83f;
+}
+
+@keyframes nt-connect {
+    0%, 100% {
+        background: #1e4226;
+        box-shadow: none;
+    }
+
+    45% {
+        background: #9aff7e;
+        box-shadow: 0 0 8px #55e94c;
+    }
+}
+
+.nt-connection-text {
+    margin-left: 5px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: #a8efa8;
+}
+
+/* PAINEL DE CONTROLES */
+
+.controls {
+    background: linear-gradient(
+        #aebfe8,
+        #7994d0 20%,
+        #4564a8 65%,
+        #304880
+    );
+
+    border-top: 1px solid #d9e7ff;
+    box-shadow: inset 0 1px 3px #ffffff80;
+}
+
+/* BOTÕES TRIDIMENSIONAIS */
+
+.controls button[data-action] {
+    border-radius: 50%;
+
+    min-width: 30px;
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+    color: #142b63;
+
+    border: 1px solid #263b6b;
+
+    background: linear-gradient(
+        #ffffff,
+        #e0e8fa 30%,
+        #a2b3d8 65%,
+        #dce6fb 90%
+    );
+
+    box-shadow:
+        inset 1px 2px 2px #ffffff,
+        inset -2px -2px 2px #5a70a5,
+        2px 3px 4px #0007;
+}
+
+.controls button[data-action="play"] {
+    width: 44px;
+    height: 44px;
+    font-size: 21px;
+}
+
+.controls button[data-action]:active:not(:disabled) {
+    transform: translateY(1px);
+
+    box-shadow:
+        inset 2px 3px 4px #405480,
+        0 1px 1px #0005;
+}
+
+/* RELÓGIO DIGITAL */
+
+.clock {
+    color: #a7ff8b;
+    background: #08130d;
+
+    padding: 6px 9px;
+    border: 2px inset #7e92b6;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    text-shadow: 0 0 5px #54b638;
+
+    font-variant-numeric: tabular-nums;
+}
+
+/* PAINEL DE INFORMAÇÕES TÉCNICAS */
+
+.nt-telemetry {
+    flex: 0 0 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    background: #0a1428;
+    color: #a5c8ee;
+
+    border: 2px inset #8196bf;
+    padding: 7px;
+
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.nt-quality-display {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.nt-quality {
+    padding: 3px 5px;
+    border: 1px solid #344a6d;
+    background: #15243c;
+    color: #667b96;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.nt-quality.active {
+    background: #203b29;
+    color: #a9ff8e;
+    border-color: #76b76a;
+
+    text-shadow: 0 0 4px #54c54b;
+}
+
+.nt-transfer-value {
+    color: #9bff85;
+    font-weight: bold;
+}
+
+.nt-resolution {
+    color: #a9ff8e;
+}
+
+/* VOLUME VERDE */
+
+.controls input.volume {
+    accent-color: #77d65e;
+}
+
+/* STATUS */
+
+.status {
+    order: 1;
+    background: #080e20;
+    color: #aec7e7;
+    border-top: 1px solid #7084ae;
+
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.controls {
+    order: 2;
+}
+
+/* ASSINATURA */
+
+.player-signature {
+    order: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 7px 10px;
+
+    background: linear-gradient(
+        #29458f,
+        #061477
+    );
+
+    color: #dce7ff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-style: italic;
+
+    border-top: 2px solid #ed2534;
+}
+
+@media (max-width: 600px) {
+    .nt-telemetry {
+        font-size: 10px;
+    }
+
+    .nt-splash-logo {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 6px;
+    }
+
+    .nt-splash-version {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .nt-splash-slogan {
+        font-size: 9px;
+        margin-top: 8px;
+    }
+
+    .clock {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nt-led {
+        animation: none !important;
+    }
+
+    .buffer-fill {
+        transition: none;
+    }
+}
+
