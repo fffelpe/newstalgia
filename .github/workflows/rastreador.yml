@@ -4,6 +4,12 @@ name: Newstalgia - Acervo e Rastreador
 on:
 
   workflow_dispatch:
+    inputs:
+      teste_email:
+        description: "Executar somente teste de email"
+        required: false
+        type: boolean
+        default: false
 
   schedule:
     - cron: '17 10 * * *'
@@ -31,6 +37,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+
+      EMAIL_REMETENTE: ${{ secrets.EMAIL_REMETENTE }}
+
+      EMAIL_DESTINATARIO: ${{ secrets.EMAIL_DESTINATARIO }}
+
+      MICROSOFT_CLIENT_ID: ${{ secrets.MICROSOFT_CLIENT_ID }}
+
+      MICROSOFT_REFRESH_TOKEN: ${{ secrets.MICROSOFT_REFRESH_TOKEN }}
+
     steps:
 
       - name: Acessar repositorio
@@ -41,32 +57,36 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Testar rastreador
-        run: python rastreador.py --self-test
+      - name: Validar scripts
+        run: |
+          python -m py_compile notificar.py
+          python rastreador.py --self-test
+
+      - name: Testar envio pelo Outlook
+        if: github.event_name == 'workflow_dispatch' && inputs.teste_email
+        run: python notificar.py --teste
 
       - name: Gerar paginas e metadados
+        if: ${{ !inputs.teste_email }}
         run: python gerar_paginas.py
         env:
           SITE_URL: ${{ vars.SITE_URL }}
 
       - name: Procurar materiais historicos
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && !inputs.teste_email
         run: python rastreador.py
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
 
-      - name: Enviar notificacao por email
-        if: github.event_name != 'push'
+      - name: Enviar notificacao pelo Outlook
+        if: github.event_name != 'push' && !inputs.teste_email
         run: python notificar.py
-        env:
-          EMAIL_REMETENTE: ${{ secrets.EMAIL_REMETENTE }}
-          EMAIL_DESTINATARIO: ${{ secrets.EMAIL_DESTINATARIO }}
-          EMAIL_SENHA: ${{ secrets.EMAIL_SENHA }}
 
       - name: Salvar atualizacoes
-        if: always()
+        if: ${{ always() && !inputs.teste_email }}
         run: |
+
           git config user.name "newstalgia-bot"
 
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,8 +94,13 @@ jobs:
           git add -A
 
           if git diff --cached --quiet; then
+
             echo "Nenhuma atualizacao necessaria."
+
           else
+
             git commit -m "Atualizar acervo Newstalgia"
+
             git push
+
           fi
