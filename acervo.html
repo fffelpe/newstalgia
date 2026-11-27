@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Acervo histórico do jornalismo televisivo brasileiro.">
+    <title>Newstalgia - Acervo</title>
+    <link rel="stylesheet" href="player.css">
+</head>
+<body>
+
+<main>
+    <header>
+        <div class="brand">Newstalgia</div>
+        <p class="tag">As notícias passam. A história permanece.</p>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Início</a> |
+        <a href="acervo.html">Acervo</a>
+    </nav>
+
+    <h1>Acervo de vídeos</h1>
+
+    <input type="search" id="busca"
+           placeholder="Pesquisar reportagens, apresentadores e datas">
+
+    <select id="programa">
+        <option value="">Todos os programas</option>
+        <option>Cidade Alerta</option>
+        <option>Brasil Urgente</option>
+        <option>Repórter Cidadão</option>
+    </select>
+
+    <p id="contador" aria-live="polite"></p>
+
+    <ul id="resultados" class="results"></ul>
+
+    <footer class="muted">
+        Newstalgia — Memória do jornalismo televisivo brasileiro.
+    </footer>
+</main>
+
+<script>
+let catalogo = [];
+
+function normalizar(texto) {
+    return String(texto ?? "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
+async function carregarCatalogo() {
+    try {
+        const resposta = await fetch("catalogo-player.json");
+
+        if (!resposta.ok) {
+            throw new Error("Catálogo indisponível");
+        }
+
+        const dados = await resposta.json();
+
+        catalogo = Array.isArray(dados)
+            ? dados
+            : dados.registros.map(registro =>
+                Object.fromEntries(
+                    dados.campos.map((campo, i) =>
+                        [campo, registro[i]]
+                    )
+                )
+            );
+
+        pesquisar();
+
+    } catch (erro) {
+        document.getElementById("contador").textContent =
+            "Não foi possível carregar o acervo.";
+    }
+}
+
+function pesquisar() {
+    const termo = normalizar(
+        document.getElementById("busca").value
+    );
+
+    const programa = document.getElementById("programa").value;
+    const resultados = document.getElementById("resultados");
+
+    resultados.replaceChildren();
+
+    const filtrados = catalogo.filter(video => {
+        if (video.duplicata_provavel_de) return false;
+
+        const texto = normalizar([
+            video.titulo,
+            video.programa,
+            video.emissora,
+            video.apresentadores,
+            video.reporter,
+            video.data_exibicao,
+            video.local_reportagem,
+            video.materias_identificadas
+        ].join(" "));
+
+        return texto.includes(termo) &&
+            (!programa || video.programa === programa);
+    });
+
+    document.getElementById("contador").textContent =
+        filtrados.length + " vídeos encontrados";
+
+    filtrados.forEach(video => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        const info = document.createElement("p");
+
+        link.href = "assistir/" +
+            encodeURIComponent(video.drive_id) + ".html";
+
+        link.textContent = video.titulo;
+
+        info.className = "muted";
+        info.textContent =
+            video.programa + " | " +
+            (video.data_exibicao || "Data não identificada");
+
+        item.append(link, info);
+        resultados.appendChild(item);
+    });
+}
+
+document.getElementById("busca")
+    .addEventListener("input", pesquisar);
+
+document.getElementById("programa")
+    .addEventListener("change", pesquisar);
+
+carregarCatalogo();
+</script>
+
+</body>
+</html>
