@@ -216,6 +216,104 @@
             "Consulte o arquivo original no acervo.";
     }
 
-    setInterval(atualizarBarra, 400);
+
+/* SISTEMA DE BUFFER NEWSTALGIA */
+
+const bufferPanel = document.createElement("div");
+
+bufferPanel.className = "buffer-panel";
+
+bufferPanel.innerHTML = `
+    <span>BUFFER</span>
+
+    <div class="buffer-track"
+         role="progressbar"
+         aria-label="Vídeo armazenado em buffer"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         aria-valuenow="0">
+
+        <div class="buffer-fill"></div>
+
+    </div>
+
+    <span class="buffer-percent">0%</span>
+`;
+
+root.querySelector(".controls").prepend(bufferPanel);
+
+const bufferTrack =
+    bufferPanel.querySelector(".buffer-track");
+
+const bufferFill =
+    bufferPanel.querySelector(".buffer-fill");
+
+const bufferPercent =
+    bufferPanel.querySelector(".buffer-percent");
+
+function atualizarBuffer() {
+
+    if (!pronto) return;
+
+    let fracao = 0;
+
+    if (isYouTube && youtubePlayer) {
+
+        fracao = youtubePlayer.getVideoLoadedFraction();
+
+    } else if (
+        Number.isFinite(video.duration) &&
+        video.duration > 0
+    ) {
+
+        let carregado = 0;
+
+        for (let i = 0; i < video.buffered.length; i++) {
+
+            carregado +=
+                video.buffered.end(i) -
+                video.buffered.start(i);
+
+        }
+
+        fracao = carregado / video.duration;
+
+    }
+
+    const porcentagem = Math.max(
+        0,
+        Math.min(100, Math.floor((fracao || 0) * 100))
+    );
+
+    bufferFill.style.width = porcentagem + "%";
+
+    bufferPercent.textContent = porcentagem + "%";
+
+    bufferTrack.setAttribute(
+        "aria-valuenow",
+        porcentagem
+    );
+
+}
+
+/* ASSINATURA DO PLAYER */
+
+const assinatura = document.createElement("div");
+
+assinatura.className = "player-signature";
+
+assinatura.textContent = "NEWSTALGIA PLAYER 1.0";
+
+root.appendChild(assinatura);
+
+/* ATUALIZAÇÃO DOS INDICADORES */
+
+setInterval(() => {
+
+    atualizarBarra();
+
+    atualizarBuffer();
+
+}, 400);
 
 })();
