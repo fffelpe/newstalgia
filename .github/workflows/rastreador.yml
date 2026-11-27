@@ -2,10 +2,11 @@
 name: Newstalgia - Acervo e Rastreador
 
 on:
+
   workflow_dispatch:
 
   schedule:
-    - cron: '17 10 * * 1'
+    - cron: '17 10 * * *'
 
   push:
     paths:
@@ -14,6 +15,7 @@ on:
       - 'player.css'
       - 'player.js'
       - 'rastreador.py'
+      - 'notificar.py'
       - '.github/workflows/rastreador.yml'
 
 permissions:
@@ -31,7 +33,7 @@ jobs:
 
     steps:
 
-      - name: Acessar repositório
+      - name: Acessar repositorio
         uses: actions/checkout@v4
 
       - name: Configurar Python
@@ -42,19 +44,28 @@ jobs:
       - name: Testar rastreador
         run: python rastreador.py --self-test
 
-      - name: Gerar páginas e metadados
+      - name: Gerar paginas e metadados
         run: python gerar_paginas.py
         env:
           SITE_URL: ${{ vars.SITE_URL }}
 
-      - name: Procurar materiais históricos
+      - name: Procurar materiais historicos
         if: github.event_name != 'push'
         run: python rastreador.py
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
 
-      - name: Salvar atualizações
+      - name: Enviar notificacao por email
+        if: github.event_name != 'push'
+        run: python notificar.py
+        env:
+          EMAIL_REMETENTE: ${{ secrets.EMAIL_REMETENTE }}
+          EMAIL_DESTINATARIO: ${{ secrets.EMAIL_DESTINATARIO }}
+          EMAIL_SENHA: ${{ secrets.EMAIL_SENHA }}
+
+      - name: Salvar atualizacoes
+        if: always()
         run: |
           git config user.name "newstalgia-bot"
 
@@ -63,7 +74,7 @@ jobs:
           git add -A
 
           if git diff --cached --quiet; then
-            echo "Nenhuma atualização necessária."
+            echo "Nenhuma atualizacao necessaria."
           else
             git commit -m "Atualizar acervo Newstalgia"
             git push
